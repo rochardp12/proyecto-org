@@ -73,7 +73,7 @@ l13_tm2_m2 db 'Z F L P I T G D S K U Q A$'
 
 
 
-linea1 DB 0AH,0DH,"$"
+linea4 DB 0AH,0DH,"$"
 
 
 imprimirL4 PROC
