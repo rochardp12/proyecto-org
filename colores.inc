@@ -94,22 +94,28 @@ camboya db 'C A M B O Y A'
 
 m1_tm1_p1 PROC
     letraColor i n4 n2 w1
-    letraColor no n4 n3 w1
+    ;letraColor no n4 n3 w1
     letraColor t n5 n4 w1
-    letraColor no n5 n5 w1
+    ;letraColor no n5 n5 w1
     letraColor a n6 n6 w1
-    letraColor no n6 n7 w1
+    ;letraColor no n6 n7 w1
     letraColor l n7 n8 w1
-    letraColor no n7 n9 w1
+    ;letraColor no n7 n9 w1
     letraColor i n8 n10 w1
-    letraColor no n8 n11 w1
+    ;letraColor no n8 n11 w1
     letraColor a n9 n12 w1
-    letraColor no n9 n13 w1
+    ;letraColor no n9 n13 w1
     ret
 m1_tm1_p1 ENDP
 
 m1_tm1_p2 PROC
-    letraColor brasil n1 n4 w11
+    ;letraColor brasil n1 n4 w11
+    letraColor b n1 n4 w1
+    letraColor r n1 n6 w1
+    letraColor a n1 n8 w1
+    letraColor s n1 n10 w1
+    letraColor i n1 n12 w1
+    letraColor l n1 n14 w1
     ret
 m1_tm1_p2 ENDP
 
