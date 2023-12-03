@@ -74,7 +74,7 @@ l13_tm1_m2 db 'S F D I N A M A R C A Q A$'
 
 
 
-linea1 DB 0AH,0DH,"$"
+linea2 DB 0AH,0DH,"$"
 
 
 imprimirL2 PROC
