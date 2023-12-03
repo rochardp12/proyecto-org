@@ -16,7 +16,7 @@ tematica_escogida db ?
 matriz_escogida db ?
 
 
-cadena_mayusculas db 50 dup(0)
+cadena_mayusculas db 20 dup(0)
 
 v1 db 0
 v2 db 0
@@ -51,10 +51,10 @@ p5_l3 db 5 dup(0)
 p5_l4 db 5 dup(0)
 p5_l5 db 5 dup(0)
 
-p6 db 10 dup(0)
-p7 db 10 dup(0)
-p9 db 10 dup(0)
-p6_1 db 10 dup(0)
+p6 db 20 dup(0)
+p7 db 20 dup(0)
+p9 db 20 dup(0)
+p6_1 db 20 dup(0)
 
 
 p1_tm1_m1 db 'ITALIA',0
@@ -797,7 +797,7 @@ vaciarMayus PROC
     mov byte ptr [cadena_mayusculas+si],0
     inc si;
     
-    cmp si,50
+    cmp si,20
     jl vaciarM
 
     ret
