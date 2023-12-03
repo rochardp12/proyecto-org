@@ -37,23 +37,24 @@ palabra7letras db 10 dup(0)
 palabra5letras db 10 dup(0)
 
 
-tp1_p6_l1 db 5 dup(0)
-tp1_p6_l2 db 5 dup(0)
-tp1_p6_l3 db 5 dup(0)
-tp1_p6_l4 db 5 dup(0)
-tp1_p6_l5 db 5 dup(0)
-tp1_p6_l6 db 5 dup(0)
+p6_l1 db 5 dup(0)
+p6_l2 db 5 dup(0)
+p6_l3 db 5 dup(0)
+p6_l4 db 5 dup(0)
+p6_l5 db 5 dup(0)
+p6_l6 db 5 dup(0)
 
 
-tp1_p5_l1 db 5 dup(0)
-tp1_p5_l2 db 5 dup(0)
-tp1_p5_l3 db 5 dup(0)
-tp1_p5_l4 db 5 dup(0)
-tp1_p5_l5 db 5 dup(0)
+p5_l1 db 5 dup(0)
+p5_l2 db 5 dup(0)
+p5_l3 db 5 dup(0)
+p5_l4 db 5 dup(0)
+p5_l5 db 5 dup(0)
 
-tp1_p6 db 10 dup(0)
-tp1_p7 db 10 dup(0)
-tp1_p9 db 10 dup(0)
+p6 db 10 dup(0)
+p7 db 10 dup(0)
+p9 db 10 dup(0)
+p6_1 db 10 dup(0)
 
 
 p1_tm1_m1 db 'ITALIA',0
@@ -73,13 +74,21 @@ l db 'L'
 r db 'R'
 u db 'U'
 s db 'S'
+z db 'Z'
+
 
 
 p1_tm1_m2 db 'PANAMA',0
 p2_tm1_m2 db 'MEXICO',0
 p3_tm1_m2 db 'DINAMARCA',0
 p4_tm1_m2 db 'AUSTRIA',0
-p5_tm1_m2 db 'SUIZA',0  
+p5_tm1_m2 db 'SUIZA',0
+
+panama db 'P A N A M A'
+mexico db 'M E X I C O'
+dinamarca db 'D I N A M A R C A'
+austria db 'A U S T R I A'
+
 
 
 p1_tm2_m1 db 'AMBATO',0
@@ -113,8 +122,8 @@ linea2 db '**************<---------------->****************$'
 linea3 db '*****(~^^)~***| SOPA DE LETRAS |***~(^^~)*******$'
 linea4 db '**************<---------------->****************$'
 linea5 db ' ********************************************** $'
-linea6 db                 'ï¿½ BIENVENIDO ï¿½$'
-linea7 db            'ï¿½ Tematicas Disponibles ï¿½$'
+linea6 db                 'Ð BIENVENIDO Ð$'
+linea7 db            'Ï Tematicas Disponibles Ï$'
 linea8 db          '1. Paises de America y Europa$'
 linea9 db          '2. Ciudades del Ecuador$'
 linea10 db         '3. Paises de Asia y Africa$'
@@ -205,29 +214,29 @@ mov matriz_escogida,al
 
 call imprimirLinea 
 
-;cmp matriz_escogida,1
-;jl incorrecta_m
+cmp matriz_escogida,1
+jl incorrecta_m
 
-;cmp matriz_escogida,2
-;jg incorrecta_m
+cmp matriz_escogida,2
+jg incorrecta_m
 
 cmp matriz_escogida,1
 jz tm1_m1_inicio
 
-;cmp matriz_escogida,2
-;jz tm1_m2_inicio
+cmp matriz_escogida,2
+jz tm1_m2_inicio
 
 ;----------------MATRIZ INGRESADA INCORRECTA------------------
 
-;incorrecta_m:
+incorrecta_m:
 
-;mov ah,09h
-;lea dx,matrizInco
-;int 21h
+mov ah,09h
+lea dx,matrizInco
+int 21h
 
-;call imprimirLinea 
+call imprimirLinea 
 
-;jmp m_tm1
+jmp m_tm1
 
 
 ;---------------TEMATICA 1 MATRIZ 1---------------------------- 
@@ -246,7 +255,23 @@ tm1_m1_inicio:
     mov ah,2
     int 10h
     
-    jmp palabras_tm1_m1 
+    jmp palabras_tm1_m1
+    
+;--------------TEMATICA 2 MATRIZ 1-----------------------------
+tm1_m2_inicio:
+    mov al,1
+    mov vTp2,al
+    
+    mov ax,3
+    int 10h 
+    call imprimirM2 
+    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    
+    jmp palabras_tm1_m2  
 
 ;----------------PALABRAS MATRIZ 1 TEMATICA 1-----------------
 palabras_tm1_m1:
@@ -272,67 +297,130 @@ palabras_tm1_m1:
     rep movsb    
       
     mov si,offset i
-    mov di,offset tp1_p6_l1
+    mov di,offset p6_l1
     mov cx,1
     rep movsb
     mov si,offset t
-    mov di,offset tp1_p6_l2
+    mov di,offset p6_l2
     mov cx,1
     rep movsb
     mov si,offset a
-    mov di,offset tp1_p6_l3
+    mov di,offset p6_l3
     mov cx,1
     rep movsb
     mov si,offset l
-    mov di,offset tp1_p6_l4
+    mov di,offset p6_l4
     mov cx,1
     rep movsb
     mov si,offset i
-    mov di,offset tp1_p6_l5
+    mov di,offset p6_l5
     mov cx,1
     rep movsb
     mov si,offset a
-    mov di,offset tp1_p6_l6
+    mov di,offset p6_l6
     mov cx,1
     rep movsb
     
     mov si,offset r
-    mov di,offset tp1_p5_l1
+    mov di,offset p5_l1
     mov cx,1
     rep movsb
     mov si,offset u
-    mov di,offset tp1_p5_l2
+    mov di,offset p5_l2
     mov cx,1
     rep movsb
     mov si,offset s
-    mov di,offset tp1_p5_l3
+    mov di,offset p5_l3
     mov cx,1
     rep movsb
     mov si,offset i
-    mov di,offset tp1_p5_l4
+    mov di,offset p5_l4
     mov cx,1
     rep movsb
     mov si,offset a
-    mov di,offset tp1_p5_l5
+    mov di,offset p5_l5
     mov cx,1
     rep movsb
 
     mov si,offset brasil
-    mov di,offset tp1_p6
+    mov di,offset p6
     mov cx,11
     rep movsb
     mov si,offset ecuador
-    mov di,offset tp1_p7
+    mov di,offset p7
     mov cx,13
     rep movsb
     mov si,offset argentina
-    mov di,offset tp1_p9
+    mov di,offset p9
     mov cx,17
     rep movsb
 
     jmp ingresar_palabra
     
-        
+
+;----------------PALABRAS MATRIZ 2 TEMATICA 1-----------------
+palabras_tm1_m2:
+    mov si,offset p1_tm1_m2
+    mov di,offset palabra6letras1
+    mov cx,6
+    rep movsb
+    mov si,offset p2_tm1_m2
+    mov di,offset palabra6letras2
+    mov cx,6
+    rep movsb 
+    mov si,offset p3_tm1_m2
+    mov di,offset palabra9letras
+    mov cx,9
+    rep movsb  
+    mov si,offset p4_tm1_m2
+    mov di,offset palabra7letras
+    mov cx,7
+    rep movsb  
+    mov si,offset p5_tm1_m2
+    mov di,offset palabra5letras
+    mov cx,5
+    rep movsb    
+      
+    
+    mov si,offset s
+    mov di,offset p5_l1
+    mov cx,1
+    rep movsb
+    mov si,offset u
+    mov di,offset p5_l2
+    mov cx,1
+    rep movsb
+    mov si,offset i
+    mov di,offset p5_l3
+    mov cx,1
+    rep movsb
+    mov si,offset z
+    mov di,offset p5_l4
+    mov cx,1
+    rep movsb
+    mov si,offset a
+    mov di,offset p5_l5
+    mov cx,1
+    rep movsb      
+
+    mov si,offset panama
+    mov di,offset p6
+    mov cx,11
+    rep movsb
+    mov si,offset mexico
+    mov di,offset p6_1
+    mov cx,11
+    rep movsb
+    mov si,offset austria
+    mov di,offset p7
+    mov cx,13
+    rep movsb
+    mov si,offset dinamarca
+    mov di,offset p9
+    mov cx,17
+    rep movsb
+
+    jmp ingresar_palabra        
 
 ;---------------TEMATICA 1 MATRIZ 1---------------------------- 
 
@@ -413,8 +501,20 @@ pin:
 cambiosPantalla:
     mov ax,3
     int 10h 
-    call imprimirM1
+    
+    cmp vTp1,1
+    jz k1
+    jnz k2
+    
     jmp validarP1 
+
+k1:
+    call imprimirM1
+    jmp validarP1
+
+k2:
+    call imprimirM2
+    jmp validarP1_1
 
 
 validarP1:
@@ -424,7 +524,7 @@ validarP1:
         
 cambiosP1:
     ;call m1_tm1_p1
-    tp1_p6letrasD i t a l i a
+    tp1_p6letrasD p6_l1 p6_l2 p6_l3 p6_l4 p6_l5 p6_l6
     mov dh,14
     mov dl,0
     mov ah,2
@@ -438,7 +538,7 @@ validarP2:
         
 cambiosP2:
    ; call m1_tm1_p2
-    tp1_p6letrasH brasil
+    tp1_p6letrasH p6 
     mov dh,14
     mov dl,0
     mov ah,2
@@ -452,7 +552,7 @@ validarP3:
         
 cambiosP3:
     ;call m1_tm1_p3
-    tp1_p9letras argentina
+    tp1_p9letras p9   
     mov dh,14
     mov dl,0
     mov ah,2
@@ -466,7 +566,7 @@ validarP4:
         
 cambiosP4:
     ;call m1_tm1_p4
-    tp1_p7letras ecuador
+    tp1_p7letras p7
     mov dh,14
     mov dl,0
     mov ah,2
@@ -480,12 +580,86 @@ validarP5:
         
 cambiosP5:
     ;call m1_tm1_p5
-    tp1_p5letras r u s i a
+    tp1_p5letras p5_l1 p5_l2 p5_l3 p5_l4 p5_l5 
     mov dh,14
     mov dl,0
     mov ah,2
     int 10h
     jmp total
+    
+    
+    
+    
+validarP1_1:
+    cmp v1,1
+    jz cambiosP1_1
+    jnz validarP2_1
+        
+cambiosP1_1:
+    ;call m1_tm1_p1
+    tp2_p6letrasH1 panama
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h 
+    jmp validarP2_1
+
+validarP2_1:
+    cmp v2,1
+    jz cambiosP2_1
+    jnz validarP3_1
+        
+cambiosP2_1:
+   ; call m1_tm1_p2
+    tp2_p6letrasH2 mexico
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP3_1
+
+validarP3_1:
+    cmp v3,1
+    jz cambiosP3_1
+    jnz validarP4_1
+        
+cambiosP3_1:
+    ;call m1_tm1_p3
+    tp2_p9letras dinamarca   
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP4_1    
+    
+validarP4_1:
+    cmp v4,1
+    jz cambiosP4_1
+    jnz validarP5_1
+        
+cambiosP4_1:
+    ;call m1_tm1_p4
+    tp2_p7letras austria
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP5_1    
+    
+validarP5_1:
+    cmp v5,1
+    jz cambiosP5_1
+    jnz total
+        
+cambiosP5_1:
+    ;call m1_tm1_p5
+    tp2_p5letras s u i z a 
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp total    
+    
 
 
 ;------------TOTAL------------------------

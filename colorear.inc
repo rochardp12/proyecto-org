@@ -49,19 +49,19 @@ tp2_p5letras macro m1 m2 m3 m4 m5
     letraColor m5 n4 n0 w1
     endm
 
-tp2_6letrasH1 macro 6leH1
+tp2_p6letrasH1 macro 6leH1
     letraColor 6leH1 n5 n12 w11
     endm
 
-tp2_6letrasH2 macro 6leH2
+tp2_p6letrasH2 macro 6leH2
     letraColor 6leH2 n10 n10 w11
     endm
 
-tp2_9letras macro 9le2
+tp2_p9letras macro 9le2
     letraColor 9le2 n12 n4 w17
     endm
 
-tp2_7letras macro 7le2
+tp2_p7letras macro 7le2
     letraColor 7le2 n0 n4 w13
     endm
 
