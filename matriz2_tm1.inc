@@ -172,7 +172,7 @@ m2_tm1_p3 PROC
     letraColor2 no_m2 n12_m2 n11_m2 
     letraColor2 l4_m2 n12_m2 n12_m2 
     letraColor2 no_m2 n12_m2 n13_m2 
-    letraColor2 l2_m2 n12_m2 n114_m2 
+    letraColor2 l2_m2 n12_m2 n14_m2 
     letraColor2 no_m2 n12_m2 n15_m2 
     letraColor2 l11_m2 n12_m2 n16_m2   
     letraColor2 no_m2 n12_m2 n17_m2 

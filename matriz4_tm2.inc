@@ -138,7 +138,7 @@ imprimirM4 PROC
     int 21h  
     call imprimirL4
     ret
-imprimirM3 ENDP
+imprimirM4 ENDP
 
 m2_tm2_p1 PROC
     letraColor4 l1_m4 n2_m4 n6_m4  
@@ -195,11 +195,11 @@ m2_tm2_p4 PROC
     letraColor4 no_m4 n3_m4 n7_m4
     letraColor4 l4_m4 n4_m4 n8_m4
     letraColor4 no_m4 n4_m4 n9_m4
-    letraColor4 l1_m4 n5_m5 n10_m4  
-    letraColor4 no_m4 n5_m5 n11_m4
-    letraColor4 l9_m4 n6_m6 n12_m4
-    letraColor4 no_m4 n6_m6 n13_m4
-    letraColor4 l6_m4 n7_m7 n14_m4
+    letraColor4 l1_m4 n5_m4 n10_m4  
+    letraColor4 no_m4 n5_m4 n11_m4
+    letraColor4 l9_m4 n6_m4 n12_m4
+    letraColor4 no_m4 n6_m4 n13_m4
+    letraColor4 l6_m4 n7_m4 n14_m4
     ret
 m2_tm2_p4 ENDP
 
