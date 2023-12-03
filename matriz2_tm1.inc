@@ -39,7 +39,7 @@ n21_m2 db 21
 n24_m2 db 24
 n25_m2 db 25
 
-no db ' '
+no_m2 db ' '
 l1_m2 db 'P'
 l2_m2 db 'A'
 l3_m2 db 'N'
@@ -79,7 +79,7 @@ linea2 DB 0AH,0DH,"$"
 
 imprimirL2 PROC
     mov ah,09h
-    lea dx,linea1
+    lea dx,linea2
     int 21h
     ret
 imprimirL2 ENDP
@@ -142,74 +142,74 @@ imprimirM2 PROC
 imprimirM2 ENDP
 
 m2_tm1_p1 PROC
-    letraColor2 p n0_m2 n0_m2
-    letraColor2 a n1_m2 n0_m2
-    letraColor2 n n2_m2 n0_m2
-    letraColor2 a n3_m2 n0_m2
-    letraColor2 m n4_m2 n0_m2
-    letraColor2 a n5_m2 n0_m2
+    letraColor2 l1_m2 n0_m2 n0_m2
+    letraColor2 l2_m2 n1_m2 n0_m2
+    letraColor2 l3_m2 n2_m2 n0_m2
+    letraColor2 l2_m2 n3_m2 n0_m2
+    letraColor2 l4_m2 n4_m2 n0_m2
+    letraColor2 l2_m2 n5_m2 n0_m2
     ret
 m2_tm1_p1 ENDP
 
 m2_tm1_p2 PROC
-    letraColor2 m n1_m2 n20_m2
-    letraColor2 e n2_m2 n20_m2
-    letraColor2 x n3_m2 n20_m2
-    letraColor2 i n4_m2 n20_m2
-    letraColor2 c n5_m2 n20_m2
-    letraColor2 o n6_m2 n20_m2
+    letraColor2 l4_m2 n1_m2 n20_m2
+    letraColor2 l5_m2 n2_m2 n20_m2
+    letraColor2 l6_m2 n3_m2 n20_m2
+    letraColor2 l7_m2 n4_m2 n20_m2
+    letraColor2 l8_m2 n5_m2 n20_m2
+    letraColor2 l9_m2 n6_m2 n20_m2
     ret
 m2_tm1_p2 ENDP
 
 m2_tm1_p3 PROC
-    letraColor2 d n12_m2 n4_m2 
-    letraColor2 no n12_m2 n5_m2 
-    letraColor2 i n12_m2 n6_m2 
-    letraColor2 no n12_m2 n7_m2 
-    letraColor2 n n12_m2 n8_m2 
-    letraColor2 no n2_m2 n9_m2 
-    letraColor2 a n12_m2 n10_m2 
-    letraColor2 no n12_m2 n11_m2 
-    letraColor2 m n12_m2 n12_m2 
-    letraColor2 no n12_m2 n13_m2 
-    letraColor2 a n12_m2 n114_m2 
-    letraColor2 no n12_m2 n15_m2 
-    letraColor2 r n12_m2 n16_m2   
-    letraColor2 no n12_m2 n17_m2 
-    letraColor2 c n12_m2 n18_m2 
-    letraColor2 no n12_m2 n19_m2 
-    letraColor2 a n12_m2 n20_m2 
+    letraColor2 l10_m2 n12_m2 n4_m2 
+    letraColor2 no_m2 n12_m2 n5_m2 
+    letraColor2 l7_m2 n12_m2 n6_m2 
+    letraColor2 no_m2 n12_m2 n7_m2 
+    letraColor2 l3_m2 n12_m2 n8_m2 
+    letraColor2 no_m2 n2_m2 n9_m2 
+    letraColor2 l2_m2 n12_m2 n10_m2 
+    letraColor2 no_m2 n12_m2 n11_m2 
+    letraColor2 l4_m2 n12_m2 n12_m2 
+    letraColor2 no_m2 n12_m2 n13_m2 
+    letraColor2 l2_m2 n12_m2 n114_m2 
+    letraColor2 no_m2 n12_m2 n15_m2 
+    letraColor2 l11_m2 n12_m2 n16_m2   
+    letraColor2 no_m2 n12_m2 n17_m2 
+    letraColor2 l8_m2 n12_m2 n18_m2 
+    letraColor2 no_m2 n12_m2 n19_m2 
+    letraColor2 l2_m2 n12_m2 n20_m2 
     ret
 m2_tm1_p3 ENDP
 
 m2_tm1_p4 PROC
-    letraColor2 a n0_m2 n4_m2 
-    letraColor2 no n0_m2 n5_m2 
-    letraColor2 u n0_m2 n6_m2 
-    letraColor2 no n0_m2 n7_m2 
-    letraColor2 s n0_m2 n8_m2 
-    letraColor2 no n0_m2 n9_m2 
-    letraColor2 t n0_m2 n10_m2 
-    letraColor2 no n0_m2 n11_m2 
-    letraColor2 r n0_m2 n12_m2 
-    letraColor2 no n0_m2 n13_m2 
-    letraColor2 i n0_m2 n14_m2 
-    letraColor2 no n0_m2 n15_m2 
-    letraColor2 a n0_m2 n16_m2 
+    letraColor2 l2_m2 n0_m2 n4_m2 
+    letraColor2 no_m2 n0_m2 n5_m2 
+    letraColor2 l12_m2 n0_m2 n6_m2 
+    letraColor2 no_m2 n0_m2 n7_m2 
+    letraColor2 l13_m2 n0_m2 n8_m2 
+    letraColor2 no_m2 n0_m2 n9_m2 
+    letraColor2 l14_m2 n0_m2 n10_m2 
+    letraColor2 no_m2 n0_m2 n11_m2 
+    letraColor2 l11_m2 n0_m2 n12_m2 
+    letraColor2 no_m2 n0_m2 n13_m2 
+    letraColor2 l7_m2 n0_m2 n14_m2 
+    letraColor2 no_m2 n0_m2 n15_m2 
+    letraColor2 l2_m2 n0_m2 n16_m2 
     ret
 m2_tm1_p4 ENDP
 
 m2_tm1_p5 PROC
-    letraColor2 s n12_m2 n0_m2 
-    letraColor2 no n12_m2 n1_m2 
-    letraColor2 u n11_m2 n2_m2 
-    letraColor2 no n11_m2 n3_m2 
-    letraColor2 i n10_m2 n4_m2 
-    letraColor2 no n10_m2 n5_m2 
-    letraColor2 z n9_m2 n6_m2 
-    letraColor2 no n9_m2 n7_m2 
-    letraColor2 a n8_m2 n8_m2 
-    letraColor2 no n8_m2 n9_m2 
+    letraColor2 l13_m2 n12_m2 n0_m2 
+    letraColor2 no_m2 n12_m2 n1_m2 
+    letraColor2 l12_m2 n11_m2 n2_m2 
+    letraColor2 no_m2 n11_m2 n3_m2 
+    letraColor2 l7_m2 n10_m2 n4_m2 
+    letraColor2 no_m2 n10_m2 n5_m2 
+    letraColor2 l15_m2 n9_m2 n6_m2 
+    letraColor2 no_m2 n9_m2 n7_m2 
+    letraColor2 l2_m2 n8_m2 n8_m2 
+    letraColor2 no_m2 n8_m2 n9_m2 
     ret
 m2_tm1_p5 ENDP   
            

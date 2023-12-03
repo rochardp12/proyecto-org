@@ -1,5 +1,5 @@
 
-letraColor macro letra fil col    
+letraColor1 macro letra fil col    
     mov     bh, 0    
     lea     bp, letra  
     mov     bl, 0F3h 
@@ -14,46 +14,46 @@ letraColor macro letra fil col
 
 org 100h
 .data
-n0 db 0
-n1 db 1
-n2 db 2
-n3 db 3
-n4 db 4
-n5 db 5
-n6 db 6
-n7 db 7
-n8 db 8
-n9 db 9
-n10 db 10
-n11 db 11
-n12 db 12
-n13 db 13
-n14 db 14
-n15 db 15
-n16 db 16
-n17 db 17
-n18 db 18
-n19 db 19
-n20 db 20
-n21 db 21
-n24 db 24
-n25 db 25
+n0_m1 db 0
+n1_m1 db 1
+n2_m1 db 2
+n3_m1 db 3
+n4_m1 db 4
+n5_m1 db 5
+n6_m1 db 6
+n7_m1 db 7
+n8_m1 db 8
+n9_m1 db 9
+n10_m1 db 10
+n11_m1 db 11
+n12_m1 db 12
+n13_m1 db 13
+n14_m1 db 14
+n15_m1 db 15
+n16_m1 db 16
+n17_m1 db 17
+n18_m1 db 18
+n19_m1 db 19
+n20_m1 db 20
+n21_m1 db 21
+n24_m1 db 24
+n25_m1 db 25
 
-no db ' '
-b db 'B'
-r db 'R'
-a db 'A'
-s db 'S'
-i db 'I'
-l db 'L'
-t db 'T'
-g db 'G'
-e db 'E'
-n db 'N'
-c db 'C'
-u db 'U'
-d db 'D'
-o db 'O'
+no_m1 db ' '
+l1_m1 db 'B'
+l2_m1 db 'R'
+l3_m1 db 'A'
+l4_m1 db 'S'
+l5_m1 db 'I'
+l6_m1 db 'L'
+l7_m1 db 'T'
+l8_m1 db 'G'
+l9_m1 db 'E'
+l10_m1 db 'N'
+l11_m1 db 'C'
+l12_m1 db 'U'
+l13_m1 db 'D'
+l14_m1 db 'O'
 
 l01_tm1_m1 db 'Q F W J L K O B Z V U E A$'
 l02_tm1_m1 db 'S D B R A S I L D G C V R$'
@@ -83,7 +83,7 @@ imprimirL1 ENDP
 imprimirM1 PROC
     mov ah,09h   
     lea dx,l01_tm1_m1
-    int 21h     
+    int 21h   
     call imprimirL1
     mov ah,09h   
     lea dx,l02_tm1_m1
@@ -131,81 +131,83 @@ imprimirM1 PROC
     call imprimirL1
     mov ah,09h   
     lea dx,l13_tm1_m1
-    int 21h  
+    int 21h
+
     call imprimirL1
+
     ret
 imprimirM1 ENDP
 
 m1_tm1_p1 PROC
-    letraColor i n4 n2
-    letraColor no n4 n3
-    letraColor t n5 n4
-    letraColor no n5 n5
-    letraColor a n6 n6
-    letraColor no n6 n7
-    letraColor l n7 n8
-    letraColor no n7 n9
-    letraColor i n8 n10
-    letraColor no n8 n11
-    letraColor a n9 n12
-    letraColor no n9 n13
+    letraColor1 l5_m1 n4_m1 n2_m1
+    letraColor1 no_m1 n4_m1 n3_m1
+    letraColor1 l7_m1 n5_m1 n4_m1
+    letraColor1 no_m1 n5_m1 n5_m1
+    letraColor1 l3_m1 n6_m1 n6_m1
+    letraColor1 no_m1 n6_m1 n7_m1
+    letraColor1 l6_m1 n7_m1 n8_m1
+    letraColor1 no_m1 n7_m1 n9_m1
+    letraColor1 l5_m1 n8_m1 n10_m1
+    letraColor1 no_m1 n8_m1 n11_m1
+    letraColor1 l3_m1 n9_m1 n12_m1
+    letraColor1 no_m1 n9_m1 n13_m1
     ret
 m1_tm1_p1 ENDP
 
 m1_tm1_p2 PROC
-    letraColor b n1 n4
-    letraColor no n1 n5
-    letraColor r n1 n6
-    letraColor no n1 n7
-    letraColor a n1 n8
-    letraColor no n1 n9
-    letraColor s n1 n10
-    letraColor no n1 n11
-    letraColor i n1 n12
-    letraColor no n1 n13
-    letraColor l n1 n14
+    letraColor1 l1_m1 n1_m1 n4_m1
+    letraColor1 no_m1 n1_m1 n5_m1
+    letraColor1 l2_m1 n1_m1 n6_m1
+    letraColor1 no_m1 n1_m1 n7_m1
+    letraColor1 l3_m1 n1_m1 n8_m1
+    letraColor1 no_m1 n1_m1 n9_m1
+    letraColor1 l4_m1 n1_m1 n10_m1
+    letraColor1 no_m1 n1_m1 n11_m1
+    letraColor1 l5_m1 n1_m1 n12_m1
+    letraColor1 no_m1 n1_m1 n13_m1
+    letraColor1 l6_m1 n1_m1 n14_m1
     ret
 m1_tm1_p2 ENDP
 
 m1_tm1_p3 PROC
-    letraColor a n0 n24
-    letraColor r n1 n24
-    letraColor g n2 n24
-    letraColor e n3 n24
-    letraColor n n4 n24
-    letraColor t n5 n24
-    letraColor i n6 n24
-    letraColor n n7 n24
-    letraColor a n8 n24
+    letraColor1 l3_m1 n0_m1 n24_m1
+    letraColor1 l2_m1 n1_m1 n24_m1
+    letraColor1 l8_m1 n2_m1 n24_m1
+    letraColor1 l9_m1 n3_m1 n24_m1
+    letraColor1 l10_m1 n4_m1 n24_m1
+    letraColor1 l7_m1 n5_m1 n24_m1
+    letraColor1 l5_m1 n6_m1 n24_m1
+    letraColor1 l10_m1 n7_m1 n24_m1
+    letraColor1 l3_m1 n8_m1 n24_m1
     ret
 m1_tm1_p3 ENDP
 
 m1_tm1_p4 PROC
-    letraColor e n12 n4
-    letraColor no n12 n5
-    letraColor c n12 n6
-    letraColor no n12 n7
-    letraColor u n12 n8
-    letraColor no n12 n9
-    letraColor a n12 n10
-    letraColor no n12 n11
-    letraColor d n12 n12
-    letraColor no n12 n13
-    letraColor o n12 n14
-    letraColor no n12 n15
-    letraColor r n12 n16
+    letraColor1 l9_m1 n12_m1 n4_m1
+    letraColor1 no_m1 n12_m1 n5_m1
+    letraColor1 l11_m1 n12_m1 n6_m1
+    letraColor1 no_m1 n12_m1 n7_m1
+    letraColor1 l12_m1 n12_m1 n8_m1
+    letraColor1 no_m1 n12_m1 n9_m1
+    letraColor1 l3_m1 n12_m1 n10_m1
+    letraColor1 no_m1 n12_m1 n11_m1
+    letraColor1 l13_m1 n12_m1 n12_m1
+    letraColor1 no_m1 n12_m1 n13_m1
+    letraColor1 l14_m1 n12_m1 n14_m1
+    letraColor1 no_m1 n12_m1 n15_m1
+    letraColor1 l2_m1 n12_m1 n16_m1
     ret
 m1_tm1_p4 ENDP
 
 m1_tm1_p5 PROC
-    letraColor r n4 n12
-    letraColor no n4 n13
-    letraColor u n4 n14
-    letraColor no n4 n15
-    letraColor s n4 n16
-    letraColor no n4 n17
-    letraColor i n4 n18
-    letraColor no n4 n19
-    letraColor a n4 n20
+    letraColor1 l2_m1 n4_m1 n12_m1
+    letraColor1 no_m1 n4_m1 n13_m1
+    letraColor1 l12_m1 n4_m1 n14_m1
+    letraColor1 no_m1 n4_m1 n15_m1
+    letraColor1 l4_m1 n4_m1 n16_m1
+    letraColor1 no_m1 n4_m1 n17_m1
+    letraColor1 l5_m1 n4_m1 n18_m1
+    letraColor1 no_m1 n4_m1 n19_m1
+    letraColor1 l3_m1 n4_m1 n20_m1
     ret
 m1_tm1_p5 ENDP

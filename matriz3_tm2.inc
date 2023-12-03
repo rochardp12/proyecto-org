@@ -39,7 +39,7 @@ n21_m3 db 21
 n24_m3 db 24
 n25_m3 db 25
 
-no db ' '
+no_m3 db ' '
 l1_m3 db 'A'
 l2_m3 db 'M'
 l3_m3 db 'B'
@@ -82,7 +82,7 @@ linea3 DB 0AH,0DH,"$"
 
 imprimirL3 PROC
     mov ah,09h
-    lea dx,linea1
+    lea dx,linea3
     int 21h
     ret
 imprimirL3 ENDP
@@ -145,73 +145,73 @@ imprimirM3 PROC
 imprimirM3 ENDP
 
 m1_tm2_p1 PROC
-    letraColor3 a n0_m3 n24_m3
-    letraColor3 m n1_m3 n24_m3
-    letraColor3 b n2_m3 n24_m3
-    letraColor3 a n3_m3 n24_m3
-    letraColor3 t n4_m3 n24_m3
-    letraColor3 o n5_m3 n24_m3
+    letraColor3 l1_m3 n0_m3 n24_m3
+    letraColor3 l2_m3 n1_m3 n24_m3
+    letraColor3 l3_m3 n2_m3 n24_m3
+    letraColor3 l1_m3 n3_m3 n24_m3
+    letraColor3 l4_m3 n4_m3 n24_m3
+    letraColor3 l5_m3 n5_m3 n24_m3
     ret
 m1_tm2_p1 ENDP
 
 m1_tm2_p2 PROC
-    letraColor3 t n9_m3 n8_m3 
-    letraColor3 no n9_m3 n9_m3  
-    letraColor3 u n9_m3 n10_m3  
-    letraColor3 no n9_m3 n11_m3  
-    letraColor3 l n9_m3 n12_m3  
-    letraColor3 no n9_m3 n13_m3  
-    letraColor3 c n9_m3 n14_m3  
-    letraColor3 no n9_m3 n15_m3  
-    letraColor3 a n9_m3 n16_m3  
-    letraColor3 no n9_m3 n17_m3  
-    letraColor3 n n9_m3 n18_m3  
+    letraColor3 l4_m3 n9_m3 n8_m3 
+    letraColor3 no_m3 n9_m3 n9_m3  
+    letraColor3 l6_m3 n9_m3 n10_m3  
+    letraColor3 no_m3 n9_m3 n11_m3  
+    letraColor3 l7_m3 n9_m3 n12_m3  
+    letraColor3 no_m3 n9_m3 n13_m3  
+    letraColor3 l8_m3 n9_m3 n14_m3  
+    letraColor3 no_m3 n9_m3 n15_m3  
+    letraColor3 l1_m3 n9_m3 n16_m3  
+    letraColor3 no_m3 n9_m3 n17_m3  
+    letraColor3 l9_m3 n9_m3 n18_m3  
     ret
 m1_tm2_p2 ENDP
 
 m1_tm2_p3 PROC
-    letraColor3 g n0_m3 n0_m3
-    letraColor3 no n0_m3 n1_m3
-    letraColor3 u n1_m3 n2_m3
-    letraColor3 no n1_m3 n3_m3
-    letraColor3 a n2_m3 n4_m3
-    letraColor3 no n2_m3 n5_m3
-    letraColor3 y n3_m3 n6_m3
-    letraColor3 no n3_m3 n7_m3
-    letraColor3 a n4_m3 n8_m3
-    letraColor3 no n4_m3 n9_m3
-    letraColor3 q n5_m3 n10_m3
-    letraColor3 no n5_m3 n11_m3
-    letraColor3 u n6_m3 n12_m3  
-    letraColor3 no n6_m3 n13_m3
-    letraColor3 i n7_m3 n14_m3
-    letraColor3 no n7_m3 n15_m3
-    letraColor3 l n8_m3 n16_m3
-    letraColor3 no n8_m3 n17_m3
+    letraColor3 l10_m3 n0_m3 n0_m3
+    letraColor3 no_m3 n0_m3 n1_m3
+    letraColor3 l6_m3 n1_m3 n2_m3
+    letraColor3 no_m3 n1_m3 n3_m3
+    letraColor3 l1_m3 n2_m3 n4_m3
+    letraColor3 no_m3 n2_m3 n5_m3
+    letraColor3 l11_m3 n3_m3 n6_m3
+    letraColor3 no_m3 n3_m3 n7_m3
+    letraColor3 l1_m3 n4_m3 n8_m3
+    letraColor3 no_m3 n4_m3 n9_m3
+    letraColor3 l12_m3 n5_m3 n10_m3
+    letraColor3 no_m3 n5_m3 n11_m3
+    letraColor3 l6_m3 n6_m3 n12_m3  
+    letraColor3 no_m3 n6_m3 n13_m3
+    letraColor3 l13_m3 n7_m3 n14_m3
+    letraColor3 no_m3 n7_m3 n15_m3
+    letraColor3 l7_m3 n8_m3 n16_m3
+    letraColor3 no_m3 n8_m3 n17_m3
     ret
 m1_tm2_p3 ENDP
 
 m1_tm2_p4 PROC
-    letraColor3 q n2_m3 n0_m3
-    letraColor3 u n3_m3 n0_m3
-    letraColor3 e n4_m3 n0_m3
-    letraColor3 v n5_m3 n0_m3
-    letraColor3 e n6_m3 n0_m3
-    letraColor3 d n7_m3 n0_m3
-    letraColor3 o n8_m3 n0_m3
+    letraColor3 l12_m3 n2_m3 n0_m3
+    letraColor3 l6_m3 n3_m3 n0_m3
+    letraColor3 l14_m3 n4_m3 n0_m3
+    letraColor3 l15_m3 n5_m3 n0_m3
+    letraColor3 l14_m3 n6_m3 n0_m3
+    letraColor3 l16_m3 n7_m3 n0_m3
+    letraColor3 l5_m3 n8_m3 n0_m3
     ret
 m1_tm2_p4 ENDP
 
 m1_tm2_p5 PROC
-    letraColor3 m n2_m3 n8_m3
-    letraColor3 no n2_m3 n9_m3
-    letraColor3 a n2_m3 n10_m3
-    letraColor3 no n2_m3 n11_m3
-    letraColor3 n n2_m3 n12_m3
-    letraColor3 no n2_m3 n13_m3
-    letraColor3 t n6_m3 n14_m3
-    letraColor3 no n7_m3 n15_m3
-    letraColor3 a n8_m3 n16_m3
+    letraColor3 l2_m3 n2_m3 n8_m3
+    letraColor3 no_m3 n2_m3 n9_m3
+    letraColor3 l1_m3 n2_m3 n10_m3
+    letraColor3 no_m3 n2_m3 n11_m3
+    letraColor3 l9_m3 n2_m3 n12_m3
+    letraColor3 no_m3 n2_m3 n13_m3
+    letraColor3 l4_m3 n6_m3 n14_m3
+    letraColor3 no_m3 n7_m3 n15_m3
+    letraColor3 l1_m3 n8_m3 n16_m3
     ret
 m1_tm2_p5 ENDP   
            

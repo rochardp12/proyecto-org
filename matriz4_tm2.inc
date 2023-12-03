@@ -39,7 +39,7 @@ n21_m4 db 21
 n24_m4 db 24
 n25_m4 db 25
 
-no db ' '
+no_m4 db ' '
 l1_m4 db 'C'
 l2_m4 db 'U'
 l3_m4 db 'E'
@@ -78,7 +78,7 @@ linea4 DB 0AH,0DH,"$"
 
 imprimirL4 PROC
     mov ah,09h
-    lea dx,linea1
+    lea dx,linea4
     int 21h
     ret
 imprimirL4 ENDP
@@ -141,74 +141,74 @@ imprimirM4 PROC
 imprimirM3 ENDP
 
 m2_tm2_p1 PROC
-    letraColor4 c n2_m4 n6_m4  
-    letraColor4 no n2_m4 n7_m4
-    letraColor4 u n2_m4 n8_m4
-    letraColor4 no n2_m4 n9_m4
-    letraColor4 e n2_m4 n10_m4
-    letraColor4 no n2_m4 n11_m4
-    letraColor4 n n2_m4 n12_m4
-    letraColor4 no n2_m4 n13_m4
-    letraColor4 c n2_m4 n14_m4
-    letraColor4 no n2_m4 n15_m4
-    letraColor4 a n2_m4 n16_m4
+    letraColor4 l1_m4 n2_m4 n6_m4  
+    letraColor4 no_m4 n2_m4 n7_m4
+    letraColor4 l2_m4 n2_m4 n8_m4
+    letraColor4 no_m4 n2_m4 n9_m4
+    letraColor4 l3_m4 n2_m4 n10_m4
+    letraColor4 no_m4 n2_m4 n11_m4
+    letraColor4 l4_m4 n2_m4 n12_m4
+    letraColor4 no_m4 n2_m4 n13_m4
+    letraColor4 l1_m4 n2_m4 n14_m4
+    letraColor4 no_m4 n2_m4 n15_m4
+    letraColor4 l5_m4 n2_m4 n16_m4
     ret
 m2_tm2_p1 ENDP
 
 m2_tm2_p2 PROC
-    letraColor4 i n4_m4 n18_m4
-    letraColor4 b n5_m4 n18_m4
-    letraColor4 a n6_m4 n18_m4
-    letraColor4 r n7_m4 n18_m4
-    letraColor4 r n8_m4 n18_m4
-    letraColor4 a n9_m4 n18_m4
+    letraColor4 l6_m4 n4_m4 n18_m4
+    letraColor4 l7_m4 n5_m4 n18_m4
+    letraColor4 l5_m4 n6_m4 n18_m4
+    letraColor4 l8_m4 n7_m4 n18_m4
+    letraColor4 l8_m4 n8_m4 n18_m4
+    letraColor4 l5_m4 n9_m4 n18_m4
     ret
 m2_tm2_p2 ENDP
 
 m2_tm2_p3 PROC
-    letraColor4 c n10_m4 n4_m4
-    letraColor4 no n10_m4 n5_m4
-    letraColor4 h n10_m4 n6_m4
-    letraColor4 no n10_m4 n7_m4
-    letraColor4 i n10_m4 n8_m4
-    letraColor4 no n10_m4 n9_m4
-    letraColor4 l n10_m4 n10_m4
-    letraColor4 no n10_m4 n11_m4
-    letraColor4 l n10_m4 n12_m4
-    letraColor4 no n10_m4 n13_m4
-    letraColor4 a n10_m4 n14_m4
-    letraColor4 no n10_m4 n15_m4
-    letraColor4 n n10_m4 n16_m4  
-    letraColor4 no n10_m4 n17_m4
-    letraColor4 e n10_m4 n18_m4
-    letraColor4 no n10_m4 n19_m4
-    letraColor4 s n10_m4 n20_m4
+    letraColor4 l1_m4 n10_m4 n4_m4
+    letraColor4 no_m4 n10_m4 n5_m4
+    letraColor4 l9_m4 n10_m4 n6_m4
+    letraColor4 no_m4 n10_m4 n7_m4
+    letraColor4 l6_m4 n10_m4 n8_m4
+    letraColor4 no_m4 n10_m4 n9_m4
+    letraColor4 l10_m4 n10_m4 n10_m4
+    letraColor4 no_m4 n10_m4 n11_m4
+    letraColor4 l10_m4 n10_m4 n12_m4
+    letraColor4 no_m4 n10_m4 n13_m4
+    letraColor4 l5_m4 n10_m4 n14_m4
+    letraColor4 no_m4 n10_m4 n15_m4
+    letraColor4 l4_m4 n10_m4 n16_m4  
+    letraColor4 no_m4 n10_m4 n17_m4
+    letraColor4 l3_m4 n10_m4 n18_m4
+    letraColor4 no_m4 n10_m4 n19_m4
+    letraColor4 l11_m4 n10_m4 n20_m4
     ret
 m2_tm2_p3 ENDP
 
 m2_tm2_p4 PROC
-    letraColor4 c n1_m4 n2_m4
-    letraColor4 no n1_m4 n3_m4
-    letraColor4 h n2_m4 n4_m4
-    letraColor4 no n2_m4 n5_m4
-    letraColor4 u n3_m4 n6_m4
-    letraColor4 no n3_m4 n7_m4
-    letraColor4 n n4_m4 n8_m4
-    letraColor4 no n4_m4 n9_m4
-    letraColor4 c n5_m5 n10_m4  
-    letraColor4 no n5_m5 n11_m4
-    letraColor4 h n6_m6 n12_m4
-    letraColor4 no n6_m6 n13_m4
-    letraColor4 i n7_m7 n14_m4
+    letraColor4 l1_m4 n1_m4 n2_m4
+    letraColor4 no_m4 n1_m4 n3_m4
+    letraColor4 l9_m4 n2_m4 n4_m4
+    letraColor4 no_m4 n2_m4 n5_m4
+    letraColor4 l2_m4 n3_m4 n6_m4
+    letraColor4 no_m4 n3_m4 n7_m4
+    letraColor4 l4_m4 n4_m4 n8_m4
+    letraColor4 no_m4 n4_m4 n9_m4
+    letraColor4 l1_m4 n5_m5 n10_m4  
+    letraColor4 no_m4 n5_m5 n11_m4
+    letraColor4 l9_m4 n6_m6 n12_m4
+    letraColor4 no_m4 n6_m6 n13_m4
+    letraColor4 l6_m4 n7_m7 n14_m4
     ret
 m2_tm2_p4 ENDP
 
 m2_tm2_p5 PROC
-    letraColor4 q n7_m4 n2_m4
-    letraColor4 u n8_m4 n2_m4
-    letraColor4 i n9_m4 n2_m4
-    letraColor4 t n10_m4 n2_m4
-    letraColor4 o n11_m4 n2_m4
+    letraColor4 l12_m4 n7_m4 n2_m4
+    letraColor4 l2_m4 n8_m4 n2_m4
+    letraColor4 l6_m4 n9_m4 n2_m4
+    letraColor4 l13_m4 n10_m4 n2_m4
+    letraColor4 l14_m4 n11_m4 n2_m4
     ret
 m2_tm2_p5 ENDP   
            
