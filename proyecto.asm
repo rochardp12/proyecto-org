@@ -1,4 +1,6 @@
-include emu8086.inc
+include emu8086.inc  
+include matrices.inc
+include colores.inc
 ;include matriz1_tm1.inc
 ;include matriz2_tm1.inc
 ;include matriz3_tm2.inc
@@ -593,7 +595,6 @@ comprobarPalabra5_Tm1_M1 ENDP
 ;----------------SALIR DEL PROGRAMA--------------------------
 salir:
 call clear_screen
-call imprimirM2
 PRINTN 'Felicidades! Completaste la sopa de letras :D'
 .exit
 end
