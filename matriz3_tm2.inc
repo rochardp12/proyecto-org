@@ -77,7 +77,7 @@ l13_tm2_m1 db 'Z F A D Y O N O R K U Q A$'
 
 
 
-linea1 DB 0AH,0DH,"$"
+linea3 DB 0AH,0DH,"$"
 
 
 imprimirL3 PROC
