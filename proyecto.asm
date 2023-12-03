@@ -29,6 +29,10 @@ vI db 0
 
 vTp1 db 0
 vTp2 db 0
+vTp3 db 0
+vTp4 db 0
+vTp5 db 0
+vTp6 db 0
 
 palabra6letras1 db 10 dup(0)
 palabra6letras2 db 10 dup(0)
@@ -130,7 +134,7 @@ int 21h
 sub al,30h
 mov tematica_escogida,al
 
-call imprimirLinea 
+imprimirLinea 
  
 cmp tematica_escogida,1
 jl incorrecta_t
@@ -141,11 +145,11 @@ jg incorrecta_t
 cmp tematica_escogida,1
 jz m_tm1
 
-;cmp tematica_escogida,2
-;jz tm_2 
+cmp tematica_escogida,2
+jz m_tm2 
 
-;cmp tematica_escogida,3
-;jz tm_3
+cmp tematica_escogida,3
+jz m_tm3
 
 jmp salir 
  
@@ -158,7 +162,7 @@ mov ah,09h
 lea dx,tematicaInco
 int 21h
 
-call imprimirLinea 
+imprimirLinea 
 
 jmp escoger_t
 
@@ -175,13 +179,13 @@ int 21h
 sub al,30h
 mov matriz_escogida,al
 
-call imprimirLinea 
+imprimirLinea 
 
 cmp matriz_escogida,1
-jl incorrecta_m
+jl incorrecta_m1
 
 cmp matriz_escogida,2
-jg incorrecta_m
+jg incorrecta_m1
 
 cmp matriz_escogida,1
 jz tm1_m1_inicio
@@ -189,17 +193,98 @@ jz tm1_m1_inicio
 cmp matriz_escogida,2
 jz tm1_m2_inicio
 
-;----------------MATRIZ INGRESADA INCORRECTA------------------
 
-incorrecta_m:
+;----------------MATRIZ TM1 INGRESADA INCORRECTA------------------
+
+incorrecta_m1:
 
 mov ah,09h
 lea dx,matrizInco
 int 21h
 
-call imprimirLinea 
+imprimirLinea 
 
 jmp m_tm1
+
+;-----------------ESCOGER MATRIZ TEMATICA 2-----------------
+
+m_tm2:
+
+mov ah,09h
+lea dx,matrizDeseada
+int 21h   
+
+mov ah,01h
+int 21h
+sub al,30h
+mov matriz_escogida,al
+
+imprimirLinea 
+
+cmp matriz_escogida,1
+jl incorrecta_m2
+
+cmp matriz_escogida,2
+jg incorrecta_m2
+
+cmp matriz_escogida,1
+jz tm2_m1_inicio
+
+cmp matriz_escogida,2
+jz tm2_m2_inicio
+
+
+;----------------MATRIZ TM2 INGRESADA INCORRECTA------------------
+
+incorrecta_m2:
+
+mov ah,09h
+lea dx,matrizInco
+int 21h
+
+imprimirLinea 
+
+jmp m_tm2 
+
+;-----------------ESCOGER MATRIZ TEMATICA 3-----------------
+
+m_tm3:
+
+mov ah,09h
+lea dx,matrizDeseada
+int 21h   
+
+mov ah,01h
+int 21h
+sub al,30h
+mov matriz_escogida,al
+
+imprimirLinea 
+
+cmp matriz_escogida,1
+jl incorrecta_m3
+
+cmp matriz_escogida,2
+jg incorrecta_m3
+
+cmp matriz_escogida,1
+jz tm3_m1_inicio
+
+cmp matriz_escogida,2
+jz tm3_m2_inicio
+
+
+;----------------MATRIZ TM3 INGRESADA INCORRECTA------------------
+
+incorrecta_m3:
+
+mov ah,09h
+lea dx,matrizInco
+int 21h
+
+imprimirLinea 
+
+jmp m_tm3
 
 
 ;---------------TEMATICA 1 MATRIZ 1---------------------------- 
@@ -211,7 +296,7 @@ tm1_m1_inicio:
     
     mov ax,3
     int 10h 
-    call imprimirM1 
+    imprimirM1 
     
     mov dh,14
     mov dl,0
@@ -220,21 +305,93 @@ tm1_m1_inicio:
     
     jmp palabras_tm1_m1
     
-;--------------TEMATICA 2 MATRIZ 1-----------------------------
+;--------------TEMATICA 1 MATRIZ 2-----------------------------
 tm1_m2_inicio:
     mov al,1
     mov vTp2,al
     
     mov ax,3
     int 10h 
-    call imprimirM2 
+    imprimirM2 
     
     mov dh,14
     mov dl,0
     mov ah,2
     int 10h
     
-    jmp palabras_tm1_m2  
+    jmp palabras_tm1_m2
+
+;---------------TEMATICA 2 MATRIZ 1---------------------------- 
+
+
+tm2_m1_inicio:
+    mov al,1
+    mov vTp3,al
+    
+    mov ax,3
+    int 10h 
+    imprimirM3 
+    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    
+    jmp palabras_tm2_m1
+
+;---------------TEMATICA 2 MATRIZ 2---------------------------- 
+
+
+tm2_m2_inicio:
+    mov al,1
+    mov vTp4,al
+    
+    mov ax,3
+    int 10h 
+    imprimirM4 
+    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    
+    jmp palabras_tm2_m2
+ 
+ ;---------------TEMATICA 3 MATRIZ 1---------------------------- 
+
+
+tm3_m1_inicio:
+    mov al,1
+    mov vTp5,al
+    
+    mov ax,3
+    int 10h 
+    imprimirM5 
+    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    
+    jmp palabras_tm3_m1 
+
+;---------------TEMATICA 3 MATRIZ 2---------------------------- 
+
+
+tm3_m2_inicio:
+    mov al,1
+    mov vTp6,al
+    
+    mov ax,3
+    int 10h 
+    imprimirM6 
+    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    
+    jmp palabras_tm3_m2 
 
 ;----------------PALABRAS MATRIZ 1 TEMATICA 1-----------------
 palabras_tm1_m1:
@@ -287,20 +444,105 @@ palabras_tm1_m2:
 
     jmp ingresar_palabra        
 
-;---------------TEMATICA 1 MATRIZ 1---------------------------- 
+;----------------PALABRAS MATRIZ 1 TEMATICA 2-----------------
+palabras_tm2_m1:
+    mov si,offset p1_tm2_m1
+    mov di,offset palabra6letras1
+    mov cx,6
+    rep movsb
+    mov si,offset p2_tm2_m1
+    mov di,offset palabra6letras2
+    mov cx,6
+    rep movsb 
+    mov si,offset p3_tm2_m1
+    mov di,offset palabra9letras
+    mov cx,9
+    rep movsb  
+    mov si,offset p4_tm2_m1
+    mov di,offset palabra7letras
+    mov cx,7
+    rep movsb  
+    mov si,offset p5_tm2_m1
+    mov di,offset palabra5letras
+    mov cx,5
+    rep movsb    
 
+    jmp ingresar_palabra
 
-;tm1_m2_inicio:
-   ; mov ax,3
-    ;int 10h 
-    ;call imprimirM2 
-    
-    ;mov dh,14
-    ;mov dl,0
-    ;mov ah,2
-    ;int 10h
-    
-    ;jmp ingresar_palabra
+;----------------PALABRAS MATRIZ 2 TEMATICA 2-----------------
+palabras_tm2_m2:
+    mov si,offset p1_tm2_m2
+    mov di,offset palabra6letras1
+    mov cx,6
+    rep movsb
+    mov si,offset p2_tm2_m2
+    mov di,offset palabra6letras2
+    mov cx,6
+    rep movsb 
+    mov si,offset p3_tm2_m2
+    mov di,offset palabra9letras
+    mov cx,9
+    rep movsb  
+    mov si,offset p4_tm2_m2
+    mov di,offset palabra7letras
+    mov cx,7
+    rep movsb  
+    mov si,offset p5_tm2_m2
+    mov di,offset palabra5letras
+    mov cx,5
+    rep movsb    
+
+    jmp ingresar_palabra
+
+;----------------PALABRAS MATRIZ 1 TEMATICA 3-----------------
+palabras_tm3_m1:
+    mov si,offset p1_tm3_m1
+    mov di,offset palabra6letras1
+    mov cx,6
+    rep movsb
+    mov si,offset p2_tm3_m1
+    mov di,offset palabra6letras2
+    mov cx,6
+    rep movsb 
+    mov si,offset p3_tm3_m1
+    mov di,offset palabra9letras
+    mov cx,9
+    rep movsb  
+    mov si,offset p4_tm3_m1
+    mov di,offset palabra7letras
+    mov cx,7
+    rep movsb  
+    mov si,offset p5_tm3_m1
+    mov di,offset palabra5letras
+    mov cx,5
+    rep movsb    
+
+    jmp ingresar_palabra
+
+;----------------PALABRAS MATRIZ 2 TEMATICA 3-----------------
+palabras_tm3_m2:
+    mov si,offset p1_tm3_m2
+    mov di,offset palabra6letras1
+    mov cx,6
+    rep movsb
+    mov si,offset p2_tm3_m2
+    mov di,offset palabra6letras2
+    mov cx,6
+    rep movsb 
+    mov si,offset p3_tm3_m2
+    mov di,offset palabra9letras
+    mov cx,9
+    rep movsb  
+    mov si,offset p4_tm3_m2
+    mov di,offset palabra7letras
+    mov cx,7
+    rep movsb  
+    mov si,offset p5_tm3_m2
+    mov di,offset palabra5letras
+    mov cx,5
+    rep movsb    
+
+    jmp ingresar_palabra    
 
 ;---------------INGRESAR POSIBLE PALABRA---------------------
 
@@ -350,13 +592,13 @@ incorrecto:
     jnz total
 
 pin: 
-    call imprimirLinea
+    imprimirLinea
     
     mov ah,09h
     lea dx,palabraInco
     int 21h 
     
-    call imprimirLinea
+    imprimirLinea
 
     jmp ingresar_palabra  
     
@@ -366,20 +608,52 @@ pin:
 cambiosPantalla:
     mov ax,3
     int 10h 
+    jmp validacionM1
     
+validacionM1:
     cmp vTp1,1
     jz k1
-    jnz k2
-    
-    jmp validarP1 
-
+    jnz validacionM2
 k1:
-    call imprimirM1
+    imprimirM1
     jmp validarP1
-
+    
+validacionM2:
+    cmp vTp2,1
+    jz k2
+    jnz validacionM3
 k2:
-    call imprimirM2
+    imprimirM2
     jmp validarP1_1
+
+validacionM3:
+    cmp vTp3,1
+    jz k3
+    jnz validacionM4
+k3:
+    imprimirM3
+    jmp validarP1_2     
+    
+validacionM4:
+    cmp vTp4,1
+    jz k4
+    jnz validacionM5
+k4:
+    imprimirM4
+    jmp validarP1_3 
+
+validacionM5:
+    cmp vTp5,1
+    jz k5
+    jnz k6
+k5:
+    imprimirM5
+    jmp validarP1_4 
+
+k6:
+    imprimirM6
+    jmp validarP1_5 
+
 
 
 validarP1:
@@ -388,7 +662,6 @@ validarP1:
     jnz validarP2
         
 cambiosP1:
-    ;call m1_tm1_p1
     m1_italia
     mov dh,14
     mov dl,0
@@ -402,7 +675,6 @@ validarP2:
     jnz validarP3
         
 cambiosP2:
-   ; call m1_tm1_p2
     m1_brasil 
     mov dh,14
     mov dl,0
@@ -416,7 +688,6 @@ validarP3:
     jnz validarP4
         
 cambiosP3:
-    ;call m1_tm1_p3
     m1_argentina   
     mov dh,14
     mov dl,0
@@ -430,7 +701,6 @@ validarP4:
     jnz validarP5
         
 cambiosP4:
-    ;call m1_tm1_p4
     m1_ecuador p7
     mov dh,14
     mov dl,0
@@ -444,7 +714,6 @@ validarP5:
     jnz total
         
 cambiosP5:
-    ;call m1_tm1_p5
     m1_rusia
     mov dh,14
     mov dl,0
@@ -461,7 +730,6 @@ validarP1_1:
     jnz validarP2_1
         
 cambiosP1_1:
-    ;call m1_tm1_p1
     m2_panama
     mov dh,14
     mov dl,0
@@ -475,7 +743,6 @@ validarP2_1:
     jnz validarP3_1
         
 cambiosP2_1:
-   ; call m1_tm1_p2
     m2_mexico
     mov dh,14
     mov dl,0
@@ -489,7 +756,6 @@ validarP3_1:
     jnz validarP4_1
         
 cambiosP3_1:
-    ;call m1_tm1_p3
     m2_dinamarca    
     mov dh,14
     mov dl,0
@@ -503,7 +769,6 @@ validarP4_1:
     jnz validarP5_1
         
 cambiosP4_1:
-    ;call m1_tm1_p4
     m2_austria
     mov dh,14
     mov dl,0
@@ -517,13 +782,286 @@ validarP5_1:
     jnz total
         
 cambiosP5_1:
-    ;call m1_tm1_p5
     m2_suiza
     mov dh,14
     mov dl,0
     mov ah,2
     int 10h
-    jmp total    
+    jmp total
+    
+    
+validarP1_2:
+    cmp v1,1
+    jz cambiosP1_2
+    jnz validarP2_2
+        
+cambiosP1_2:
+    m3_ambato
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h 
+    jmp validarP2_2
+
+validarP2_2:
+    cmp v2,1
+    jz cambiosP2_2
+    jnz validarP3_2
+        
+cambiosP2_2:
+    m3_tulcan
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP3_2
+
+validarP3_2:
+    cmp v3,1
+    jz cambiosP3_2
+    jnz validarP4_2
+        
+cambiosP3_2:
+    m3_guayaquil    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP4_2    
+    
+validarP4_2:
+    cmp v4,1
+    jz cambiosP4_2
+    jnz validarP5_2
+        
+cambiosP4_2:
+    m3_quevedo
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP5_2    
+    
+validarP5_2:
+    cmp v5,1
+    jz cambiosP5_2
+    jnz total
+        
+cambiosP5_2:
+    m3_manta
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp total
+
+
+
+
+
+
+validarP1_3:
+    cmp v1,1
+    jz cambiosP1_3
+    jnz validarP2_3
+        
+cambiosP1_3:
+    m4_cuenca
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h 
+    jmp validarP2_3
+
+validarP2_3:
+    cmp v2,1
+    jz cambiosP2_3
+    jnz validarP3_3
+        
+cambiosP2_3:
+    m4_ibarra
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP3_3
+
+validarP3_3:
+    cmp v3,1
+    jz cambiosP3_3
+    jnz validarP4_3
+        
+cambiosP3_3:
+    m4_chillanes    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP4_3    
+    
+validarP4_3:
+    cmp v4,1
+    jz cambiosP4_3
+    jnz validarP5_3
+        
+cambiosP4_3:
+    m4_chunchi
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP5_3    
+    
+validarP5_3:
+    cmp v5,1
+    jz cambiosP5_3
+    jnz total
+        
+cambiosP5_3:
+    m4_quito
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp total
+    
+    
+
+
+validarP1_4:
+    cmp v1,1
+    jz cambiosP1_4
+    jnz validarP2_4
+        
+cambiosP1_4:
+    m5_chipre
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h 
+    jmp validarP2_4
+
+validarP2_4:
+    cmp v2,1
+    jz cambiosP2_4
+    jnz validarP3_4
+        
+cambiosP2_4:
+    m5_taiwan
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP3_4
+
+validarP3_4:
+    cmp v3,1
+    jz cambiosP3_4
+    jnz validarP4_4
+        
+cambiosP3_4:
+    m5_indonesia    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP4_4    
+    
+validarP4_4:
+    cmp v4,1
+    jz cambiosP4_4
+    jnz validarP5_4
+        
+cambiosP4_4:
+    m5_senegal
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP5_4    
+    
+validarP5_4:
+    cmp v5,1
+    jz cambiosP5_4
+    jnz total
+        
+cambiosP5_4:
+    m5_butan
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp total 
+    
+    
+    
+
+
+
+validarP1_5:
+    cmp v1,1
+    jz cambiosP1_5
+    jnz validarP2_5
+        
+cambiosP1_5:
+    m6_zambia
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h 
+    jmp validarP2_5
+
+validarP2_5:
+    cmp v2,1
+    jz cambiosP2_5
+    jnz validarP3_5
+        
+cambiosP2_5:
+    m6_egipto
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP3_5
+
+validarP3_5:
+    cmp v3,1
+    jz cambiosP3_5
+    jnz validarP4_5
+        
+cambiosP3_5:
+    m6_marruecos    
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP4_5    
+    
+validarP4_5:
+    cmp v4,1
+    jz cambiosP4_5
+    jnz validarP5_5
+        
+cambiosP4_5:
+    m6_camboya
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp validarP5_5    
+    
+validarP5_5:
+    cmp v5,1
+    jz cambiosP5_5
+    jnz total
+        
+cambiosP5_5:
+    m6_china
+    mov dh,14
+    mov dl,0
+    mov ah,2
+    int 10h
+    jmp total           
     
 
 
@@ -570,25 +1108,25 @@ imprimirInterfaz PROC
     lea dx,linea1
     int 21h  
     
-    call imprimirLinea
+    imprimirLinea
     
     mov ah,09h   
     lea dx,linea2
     int 21h
     
-    call imprimirLinea
+    imprimirLinea
     
     mov ah,09h   
     lea dx,linea3
     int 21h
     
-    call imprimirLinea
+    imprimirLinea
     
     mov ah,09h   
     lea dx,linea4
     int 21h
      
-    call imprimirLinea
+    imprimirLinea
     
     mov ah,09h   
     lea dx,linea5

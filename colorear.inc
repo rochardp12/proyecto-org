@@ -122,7 +122,7 @@ m3_manta macro
 
 
 m4_cuenca macro
-    letraColor cuenca n2 n6 w11
+    letraColor m4_p1 n2 n6 w11
     endm
 
 m4_ibarra macro

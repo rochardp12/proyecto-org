@@ -1,3 +1,341 @@
+imprimirLinea macro
+    mov ah,09h
+    lea dx,nueva_linea
+    int 21h
+    endm
+
+imprimirM1 macro
+    mov ah,09h   
+    lea dx,l01_tm1_m1
+    int 21h   
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l02_tm1_m1
+    int 21h
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l03_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l04_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l05_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l06_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l07_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l08_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l09_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l10_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l11_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l12_tm1_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l13_tm1_m1
+    int 21h
+    imprimirLinea
+    endm
+
+imprimirM2 macro
+    mov ah,09h   
+    lea dx,l01_tm1_m2
+    int 21h         
+    imprimirLinea      
+    mov ah,09h   
+    lea dx,l02_tm1_m2
+    int 21h
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l03_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l04_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h      
+    lea dx,l05_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l06_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l07_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l08_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l09_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l10_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l11_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l12_tm1_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l13_tm1_m2
+    int 21h  
+    imprimirLinea
+    endm
+
+imprimirM3 macro
+    mov ah,09h   
+    lea dx,l01_tm2_m1
+    int 21h         
+    imprimirLinea     
+    mov ah,09h   
+    lea dx,l02_tm2_m1
+    int 21h
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l03_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l04_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h      
+    lea dx,l05_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l06_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l07_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l08_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l09_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l10_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l11_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l12_tm2_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l13_tm2_m1
+    int 21h  
+    imprimirLinea
+    endm
+
+imprimirM4 macro
+    mov ah,09h   
+    lea dx,l01_tm2_m2
+    int 21h         
+    imprimirLinea      
+    mov ah,09h   
+    lea dx,l02_tm2_m2
+    int 21h
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l03_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l04_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h      
+    lea dx,l05_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l06_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l07_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l08_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l09_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l10_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l11_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l12_tm2_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l13_tm2_m2
+    int 21h  
+    imprimirLinea
+    endm
+
+imprimirM5 macro
+    mov ah,09h   
+    lea dx,l01_tm3_m1
+    int 21h     
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l02_tm3_m1
+    int 21h
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l03_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l04_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l05_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l06_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l07_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l08_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l09_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l10_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l11_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l12_tm3_m1
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l13_tm3_m1
+    int 21h  
+    imprimirLinea
+    endm
+
+imprimirM6 macro
+    mov ah,09h   
+    lea dx,l01_tm3_m2
+    int 21h     
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l02_tm3_m2
+    int 21h
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l03_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l04_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l05_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l06_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l07_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l08_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l09_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l10_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l11_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l12_tm3_m2
+    int 21h  
+    imprimirLinea
+    mov ah,09h   
+    lea dx,l13_tm3_m2
+    int 21h  
+    imprimirLinea
+    endm
+
+
+
 org 100h
 
 .data
@@ -86,347 +424,3 @@ l10_tm3_m2 db 'S F Y B F K Q S W P S R H$'
 l11_tm3_m2 db 'L H R C J M L G P T L Y J$'
 l12_tm3_m2 db 'C A M B O Y A L O Y P I L$'
 l13_tm3_m2 db 'Z F W X E X A S W K U Q A$'
-
-
-imprimirLinea PROC
-    mov ah,09h
-    lea dx,nueva_linea
-    int 21h
-    ret
-imprimirLinea ENDP
-
-imprimirM1 PROC
-    mov ah,09h   
-    lea dx,l01_tm1_m1
-    int 21h   
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l02_tm1_m1
-    int 21h
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l03_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l04_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l05_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l06_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l07_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l08_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l09_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l10_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l11_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l12_tm1_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l13_tm1_m1
-    int 21h
-    call imprimirLinea
-    ret
-imprimirM1 ENDP
-
-imprimirM2 PROC
-    mov ah,09h   
-    lea dx,l01_tm1_m2
-    int 21h         
-    call imprimirLinea      
-    mov ah,09h   
-    lea dx,l02_tm1_m2
-    int 21h
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l03_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l04_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h      
-    lea dx,l05_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l06_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l07_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l08_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l09_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l10_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l11_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l12_tm1_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l13_tm1_m2
-    int 21h  
-    call imprimirLinea
-    ret
-imprimirM2 ENDP
-
-imprimirM3 PROC
-    mov ah,09h   
-    lea dx,l01_tm2_m1
-    int 21h         
-    call imprimirLinea      
-    mov ah,09h   
-    lea dx,l02_tm2_m1
-    int 21h
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l03_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l04_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h      
-    lea dx,l05_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l06_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l07_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l08_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l09_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l10_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l11_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l12_tm2_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l13_tm2_m1
-    int 21h  
-    call imprimirLinea
-    ret
-imprimirM3 ENDP
-
-imprimirM4 PROC
-    mov ah,09h   
-    lea dx,l01_tm2_m2
-    int 21h         
-    call imprimirLinea      
-    mov ah,09h   
-    lea dx,l02_tm2_m2
-    int 21h
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l03_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l04_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h      
-    lea dx,l05_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l06_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l07_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l08_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l09_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l10_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l11_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l12_tm2_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l13_tm2_m2
-    int 21h  
-    call imprimirLinea
-    ret
-imprimirM4 ENDP
-
-imprimirM5 PROC
-    mov ah,09h   
-    lea dx,l01_tm3_m1
-    int 21h     
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l02_tm3_m1
-    int 21h
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l03_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l04_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l05_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l06_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l07_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l08_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l09_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l10_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l11_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l12_tm3_m1
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l13_tm3_m1
-    int 21h  
-    call imprimirLinea
-    ret
-imprimirM5 ENDP
-
-imprimirM6 PROC
-    mov ah,09h   
-    lea dx,l01_tm3_m2
-    int 21h     
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l02_tm3_m2
-    int 21h
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l03_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l04_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l05_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l06_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l07_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l08_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l09_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l10_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l11_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l12_tm3_m2
-    int 21h  
-    call imprimirLinea
-    mov ah,09h   
-    lea dx,l13_tm3_m2
-    int 21h  
-    call imprimirLinea
-    ret
-imprimirM6 ENDP
