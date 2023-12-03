@@ -11,59 +11,61 @@ letraColor macro letra fil col cant
     endm 
 
 
-tp1_p6letrasH macro 6leH
-    letraColor 6leH n1 n4 w11 
+m1_brasil macro
+    letraColor m1_p2 n1 n4 w11 
     endm
 
-tp1_p9letras macro 9le
-    letraColor 9le n4 n4 w17
+m1_argentina macro 
+    letraColor m1_p3 n4 n4 w17
     endm
 
-tp1_p7letras macro 7le
-    letraColor 7le n12 n4 w13 
+m1_ecuador macro
+    letraColor m1_p4 n12 n4 w13 
     endm
 
-tp1_p6letrasD macro l1 l2 l3 l4 l5 l6
-    letraColor l1 n4 n2 w1
-    letraColor l2 n5 n4 w1
-    letraColor l3 n6 n6 w1
-    letraColor l4 n7 n8 w1
-    letraColor l5 n8 n10 w1
-    letraColor l6 n9 n12 w1
+m1_italia macro
+    letraColor i n4 n2 w1
+    letraColor t n5 n4 w1
+    letraColor a n6 n6 w1
+    letraColor l n7 n8 w1
+    letraColor i n8 n10 w1
+    letraColor a n9 n12 w1
     endm
 
-tp1_p5letras macro d1 d2 d3 d4 d5
-    letraColor d1 n1 n24 w1
-    letraColor d2 n2 n24 w1
-    letraColor d3 n3 n24 w1
-    letraColor d4 n4 n24 w1
-    letraColor d5 n5 n24 w1
+m1_rusia macro 
+    letraColor r n1 n24 w1
+    letraColor u n2 n24 w1
+    letraColor s n3 n24 w1
+    letraColor i n4 n24 w1
+    letraColor a n5 n24 w1
     endm
 
 
-tp2_p5letras macro m1 m2 m3 m4 m5
-    letraColor m1 n0 n0 w1
-    letraColor m2 n1 n0 w1
-    letraColor m3 n2 n0 w1
-    letraColor m4 n3 n0 w1
-    letraColor m5 n4 n0 w1
+m2_suiza macro
+    letraColor s n0 n0 w1
+    letraColor u n1 n0 w1
+    letraColor i n2 n0 w1
+    letraColor z n3 n0 w1
+    letraColor a n4 n0 w1
     endm
 
-tp2_p6letrasH1 macro 6leH1
-    letraColor 6leH1 n5 n12 w11
+m2_panama macro
+    letraColor m2_p1 n5 n12 w11
     endm
 
-tp2_p6letrasH2 macro 6leH2
-    letraColor 6leH2 n10 n10 w11
+m2_mexico macro
+    letraColor m2_p2 n10 n10 w11
     endm
 
-tp2_p9letras macro 9le2
-    letraColor 9le2 n12 n4 w17
+m2_dinamarca macro
+    letraColor m2_p3 n12 n4 w17
     endm
 
-tp2_p7letras macro 7le2
-    letraColor 7le2 n0 n4 w13
+m2_austria macro
+    letraColor m2_p4 n0 n4 w13
     endm
+
+
 
 
 org 100h
@@ -105,3 +107,18 @@ n23 db 23
 n24 db 24
 n25 db 25
 
+m1_p2 db 'B R A S I L'
+m1_p3 db 'A R G E N T I N A'
+m1_p4 db 'E C U A D O R'
+m2_p1 db 'P A N A M A'
+m2_p2 db 'M E X I C O'
+m2_p3 db 'D I N A M A R C A'
+m2_p4 db 'A U S T R I A'
+i db 'I'
+t db 'T'
+a db 'A'
+l db 'L'
+r db 'R'
+u db 'U'
+s db 'S'
+z db 'Z'

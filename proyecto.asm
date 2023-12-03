@@ -37,44 +37,11 @@ palabra7letras db 10 dup(0)
 palabra5letras db 10 dup(0)
 
 
-p6_l1 db 5 dup(0)
-p6_l2 db 5 dup(0)
-p6_l3 db 5 dup(0)
-p6_l4 db 5 dup(0)
-p6_l5 db 5 dup(0)
-p6_l6 db 5 dup(0)
-
-
-p5_l1 db 5 dup(0)
-p5_l2 db 5 dup(0)
-p5_l3 db 5 dup(0)
-p5_l4 db 5 dup(0)
-p5_l5 db 5 dup(0)
-
-p6 db 20 dup(0)
-p7 db 20 dup(0)
-p9 db 20 dup(0)
-p6_1 db 20 dup(0)
-
-
 p1_tm1_m1 db 'ITALIA',0
 p2_tm1_m1 db 'BRASIL',0
 p3_tm1_m1 db 'ARGENTINA',0
 p4_tm1_m1 db 'ECUADOR',0
 p5_tm1_m1 db 'RUSIA',0
-
-brasil db 'B R A S I L'
-ecuador db 'E C U A D O R'
-argentina db 'A R G E N T I N A'
-
-i db 'I'
-t db 'T'
-a db 'A'
-l db 'L'
-r db 'R'
-u db 'U'
-s db 'S'
-z db 'Z'
 
 
 
@@ -83,12 +50,6 @@ p2_tm1_m2 db 'MEXICO',0
 p3_tm1_m2 db 'DINAMARCA',0
 p4_tm1_m2 db 'AUSTRIA',0
 p5_tm1_m2 db 'SUIZA',0
-
-panama db 'P A N A M A'
-mexico db 'M E X I C O'
-dinamarca db 'D I N A M A R C A'
-austria db 'A U S T R I A'
-
 
 
 p1_tm2_m1 db 'AMBATO',0
@@ -122,8 +83,8 @@ linea2 db '**************<---------------->****************$'
 linea3 db '*****(~^^)~***| SOPA DE LETRAS |***~(^^~)*******$'
 linea4 db '**************<---------------->****************$'
 linea5 db ' ********************************************** $'
-linea6 db                 'Ð BIENVENIDO Ð$'
-linea7 db            'Ï Tematicas Disponibles Ï$'
+linea6 db                 'ï¿½ BIENVENIDO ï¿½$'
+linea7 db            'ï¿½ Tematicas Disponibles ï¿½$'
 linea8 db          '1. Paises de America y Europa$'
 linea9 db          '2. Ciudades del Ecuador$'
 linea10 db         '3. Paises de Asia y Africa$'
@@ -139,6 +100,8 @@ palabraInco db 'Incorrecto$'
 matrizDeseada db 'Escoja sopa de letras 1 o 2: $'   
 
 matrizInco db 'Matriz incorrecta$'
+
+finalInfo db 'Felicitaciones!! Completaste con exito la sopa de letras :D$'
 
 
 .code
@@ -295,65 +258,6 @@ palabras_tm1_m1:
     mov di,offset palabra5letras
     mov cx,5
     rep movsb    
-      
-    mov si,offset i
-    mov di,offset p6_l1
-    mov cx,1
-    rep movsb
-    mov si,offset t
-    mov di,offset p6_l2
-    mov cx,1
-    rep movsb
-    mov si,offset a
-    mov di,offset p6_l3
-    mov cx,1
-    rep movsb
-    mov si,offset l
-    mov di,offset p6_l4
-    mov cx,1
-    rep movsb
-    mov si,offset i
-    mov di,offset p6_l5
-    mov cx,1
-    rep movsb
-    mov si,offset a
-    mov di,offset p6_l6
-    mov cx,1
-    rep movsb
-    
-    mov si,offset r
-    mov di,offset p5_l1
-    mov cx,1
-    rep movsb
-    mov si,offset u
-    mov di,offset p5_l2
-    mov cx,1
-    rep movsb
-    mov si,offset s
-    mov di,offset p5_l3
-    mov cx,1
-    rep movsb
-    mov si,offset i
-    mov di,offset p5_l4
-    mov cx,1
-    rep movsb
-    mov si,offset a
-    mov di,offset p5_l5
-    mov cx,1
-    rep movsb
-
-    mov si,offset brasil
-    mov di,offset p6
-    mov cx,11
-    rep movsb
-    mov si,offset ecuador
-    mov di,offset p7
-    mov cx,13
-    rep movsb
-    mov si,offset argentina
-    mov di,offset p9
-    mov cx,17
-    rep movsb
 
     jmp ingresar_palabra
     
@@ -380,45 +284,6 @@ palabras_tm1_m2:
     mov di,offset palabra5letras
     mov cx,5
     rep movsb    
-      
-    
-    mov si,offset s
-    mov di,offset p5_l1
-    mov cx,1
-    rep movsb
-    mov si,offset u
-    mov di,offset p5_l2
-    mov cx,1
-    rep movsb
-    mov si,offset i
-    mov di,offset p5_l3
-    mov cx,1
-    rep movsb
-    mov si,offset z
-    mov di,offset p5_l4
-    mov cx,1
-    rep movsb
-    mov si,offset a
-    mov di,offset p5_l5
-    mov cx,1
-    rep movsb      
-
-    mov si,offset panama
-    mov di,offset p6
-    mov cx,11
-    rep movsb
-    mov si,offset mexico
-    mov di,offset p6_1
-    mov cx,11
-    rep movsb
-    mov si,offset austria
-    mov di,offset p7
-    mov cx,13
-    rep movsb
-    mov si,offset dinamarca
-    mov di,offset p9
-    mov cx,17
-    rep movsb
 
     jmp ingresar_palabra        
 
@@ -524,7 +389,7 @@ validarP1:
         
 cambiosP1:
     ;call m1_tm1_p1
-    tp1_p6letrasD p6_l1 p6_l2 p6_l3 p6_l4 p6_l5 p6_l6
+    m1_italia
     mov dh,14
     mov dl,0
     mov ah,2
@@ -538,7 +403,7 @@ validarP2:
         
 cambiosP2:
    ; call m1_tm1_p2
-    tp1_p6letrasH p6 
+    m1_brasil 
     mov dh,14
     mov dl,0
     mov ah,2
@@ -552,7 +417,7 @@ validarP3:
         
 cambiosP3:
     ;call m1_tm1_p3
-    tp1_p9letras p9   
+    m1_argentina   
     mov dh,14
     mov dl,0
     mov ah,2
@@ -566,7 +431,7 @@ validarP4:
         
 cambiosP4:
     ;call m1_tm1_p4
-    tp1_p7letras p7
+    m1_ecuador p7
     mov dh,14
     mov dl,0
     mov ah,2
@@ -580,7 +445,7 @@ validarP5:
         
 cambiosP5:
     ;call m1_tm1_p5
-    tp1_p5letras p5_l1 p5_l2 p5_l3 p5_l4 p5_l5 
+    m1_rusia
     mov dh,14
     mov dl,0
     mov ah,2
@@ -597,7 +462,7 @@ validarP1_1:
         
 cambiosP1_1:
     ;call m1_tm1_p1
-    tp2_p6letrasH1 panama
+    m2_panama
     mov dh,14
     mov dl,0
     mov ah,2
@@ -611,7 +476,7 @@ validarP2_1:
         
 cambiosP2_1:
    ; call m1_tm1_p2
-    tp2_p6letrasH2 mexico
+    m2_mexico
     mov dh,14
     mov dl,0
     mov ah,2
@@ -625,7 +490,7 @@ validarP3_1:
         
 cambiosP3_1:
     ;call m1_tm1_p3
-    tp2_p9letras dinamarca   
+    m2_dinamarca    
     mov dh,14
     mov dl,0
     mov ah,2
@@ -639,7 +504,7 @@ validarP4_1:
         
 cambiosP4_1:
     ;call m1_tm1_p4
-    tp2_p7letras austria
+    m2_austria
     mov dh,14
     mov dl,0
     mov ah,2
@@ -653,7 +518,7 @@ validarP5_1:
         
 cambiosP5_1:
     ;call m1_tm1_p5
-    tp2_p5letras s u i z a 
+    m2_suiza
     mov dh,14
     mov dl,0
     mov ah,2
@@ -673,8 +538,14 @@ total:
     add al,v4
     add al,v5
     cmp al,5
-    jz salir
+    jz final
     jnz ingresar_palabra   
+
+final:
+    mov ah,09h
+    lea dx,finalInfo
+    int 21h
+    jmp salir    
 
 
 jmp salir
