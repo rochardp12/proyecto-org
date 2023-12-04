@@ -111,7 +111,7 @@ finalInfo db 'Felicitaciones!! Completaste con exito la sopa de letras :D$'
 
 rendirseAviso db 'En caso de que te des por vencido, tipea la palabra RENDIR$'
 
-rendirseInfo db 'Te diste por vencido!!! :( mas suerte la proxima$'
+rendirseInfo db 'Te diste por vencido!!! :( mas suerte la proxima'
 
 rendir db 'RENDIR',0
 
@@ -633,9 +633,11 @@ menu_rendirse:
     mov ax,3
     int 10h
 
-    mov ah,09h
-    lea dx,rendirseInfo
-    int 21h
+    ;mov ah,09h
+    ;lea dx,rendirseInfo
+    ;int 21h
+    
+    letraColor rendirseInfo n0 n0 w47
     
     jmp salir
  

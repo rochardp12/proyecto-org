@@ -278,6 +278,7 @@ w9 dw 9
 w17 dw 17
 w12 dw 12
 w8 dw 8
+w47 dw 47
 
 n0 db 0
 n1 db 1
