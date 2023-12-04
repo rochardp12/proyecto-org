@@ -32,7 +32,9 @@ vTp2 db 0
 vTp3 db 0
 vTp4 db 0
 vTp5 db 0
-vTp6 db 0
+vTp6 db 0 
+
+vR db 0
 
 palabra6letras1 db 10 dup(0)
 palabra6letras2 db 10 dup(0)
@@ -107,6 +109,11 @@ matrizInco db 'Matriz incorrecta$'
 
 finalInfo db 'Felicitaciones!! Completaste con exito la sopa de letras :D$'
 
+rendirseAviso db 'En caso de que te des por vencido, tipea la palabra RENDIR$'
+
+rendirseInfo db 'Te diste por vencido!!! :( mas suerte la proxima$'
+
+rendir db 'RENDIR',0
 
 .code
 
@@ -114,6 +121,7 @@ finalInfo db 'Felicitaciones!! Completaste con exito la sopa de letras :D$'
 
 mov ax,@data
 mov ds,ax
+
 
 
 ;------------------IMPRIMIR INTERFAZ------------------------ 
@@ -295,10 +303,18 @@ tm1_m1_inicio:
     mov vTp1,al
     
     mov ax,3
-    int 10h 
+    int 10h
+    
+    mov ah,09h
+    lea dx,rendirseAviso
+    int 21h
+    
+    imprimirLinea
+    imprimirLinea
+     
     imprimirM1 
     
-    mov dh,14
+    mov dh,16
     mov dl,0
     mov ah,2
     int 10h
@@ -311,10 +327,18 @@ tm1_m2_inicio:
     mov vTp2,al
     
     mov ax,3
-    int 10h 
+    int 10h
+    
+    mov ah,09h
+    lea dx,rendirseAviso
+    int 21h
+    
+    imprimirLinea
+    imprimirLinea
+     
     imprimirM2 
     
-    mov dh,14
+    mov dh,16
     mov dl,0
     mov ah,2
     int 10h
@@ -329,10 +353,18 @@ tm2_m1_inicio:
     mov vTp3,al
     
     mov ax,3
-    int 10h 
+    int 10h
+    
+    mov ah,09h
+    lea dx,rendirseAviso
+    int 21h
+    
+    imprimirLinea
+    imprimirLinea
+     
     imprimirM3 
     
-    mov dh,14
+    mov dh,16
     mov dl,0
     mov ah,2
     int 10h
@@ -347,10 +379,18 @@ tm2_m2_inicio:
     mov vTp4,al
     
     mov ax,3
-    int 10h 
+    int 10h
+    
+    mov ah,09h
+    lea dx,rendirseAviso
+    int 21h
+    
+    imprimirLinea
+    imprimirLinea
+    
     imprimirM4 
     
-    mov dh,14
+    mov dh,16
     mov dl,0
     mov ah,2
     int 10h
@@ -365,10 +405,18 @@ tm3_m1_inicio:
     mov vTp5,al
     
     mov ax,3
-    int 10h 
+    int 10h
+ 
+    mov ah,09h
+    lea dx,rendirseAviso
+    int 21h
+    
+    imprimirLinea
+    imprimirLinea
+     
     imprimirM5 
     
-    mov dh,14
+    mov dh,16
     mov dl,0
     mov ah,2
     int 10h
@@ -383,10 +431,18 @@ tm3_m2_inicio:
     mov vTp6,al
     
     mov ax,3
-    int 10h 
+    int 10h
+    
+    mov ah,09h
+    lea dx,rendirseAviso
+    int 21h
+    
+    imprimirLinea
+    imprimirLinea
+     
     imprimirM6 
     
-    mov dh,14
+    mov dh,16
     mov dl,0
     mov ah,2
     int 10h
@@ -557,8 +613,32 @@ ingresar_palabra:
     lea  di, buffer ;configura el puntero (DI) para el buffer de entrada
     mov  dx, bufSize ;establece el tamano del buffer
     call get_string  ;obtener el nombre y ponerlo en el buffer  
-    call convertirMayus           
-    jmp comprobarP1
+    call convertirMayus
+    
+    jmp comprobarRendir
+    
+;--------------COMPROBAR RENDIR-----------------------
+comprobarRendir:
+    call comprobarPalabraRendir
+    jmp testR
+testR:    
+    cmp vR,1
+    jz menu_rendirse
+    jnz comprobarP1
+    
+    
+;-------------RENDIRSE--------------------------------
+
+menu_rendirse:
+    mov ax,3
+    int 10h
+
+    mov ah,09h
+    lea dx,rendirseInfo
+    int 21h
+    
+    jmp salir
+ 
 
 ;--------------COMPROBAR PALABRAS----------------------
 
@@ -1419,7 +1499,39 @@ comprobarPalabra5_Tm1_M1 PROC
         mov al,1
         mov v5,al
     ret
-comprobarPalabra5_Tm1_M1 ENDP 
+comprobarPalabra5_Tm1_M1 ENDP
+
+
+comprobarPalabraRendir PROC
+    lea si, [rendir]
+    lea di, [cadena_mayusculas]
+    jmp compararR
+
+    compararR:
+    ; Compara los caracteres
+        mov al, [si]
+        cmp al, [di]
+
+    ; Si los caracteres son diferentes, sal del bucle
+        jne diferentesR
+
+    ; Si se llega al final de la cadena, son iguales
+        cmp al, 0
+        je igualesR
+
+    ; Incrementa los punteros y repite el bucle
+        inc si
+        inc di
+        jmp compararR
+
+    diferentesR:
+        jmp testR
+    igualesR:
+        mov al,1
+        mov vR,al
+    ret
+comprobarPalabraRendir ENDP
+
 
 ;----------------SALIR DEL PROGRAMA--------------------------
 salir:

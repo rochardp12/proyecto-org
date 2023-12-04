@@ -117,7 +117,7 @@ m3_quevedo macro
     endm
 
 m3_manta macro
-    letraColor m3_p5 n2 n8 w8
+    letraColor m3_p5 n2 n8 w9
     endm
 
 
