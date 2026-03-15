@@ -1,8 +1,13 @@
+;Macro para imprimir la informacion siguiente una linea abajo
 imprimirLinea macro
     mov ah,09h
     lea dx,nueva_linea
     int 21h
     endm
+
+;----------------------------------------------------------------------------------------
+
+;Todas las macros siguientes son para imprimir la sopa de letras escogida por el usuario
 
 imprimirM1 macro
     mov ah,09h   

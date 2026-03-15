@@ -1,3 +1,4 @@
+;Macro para imprimir letra o mensaje en color
 letraColor macro letra fil col cant   
     mov     bh, 0    
     lea     bp, letra  
@@ -10,7 +11,9 @@ letraColor macro letra fil col cant
     int     10h     
     endm 
 
+;------------------------------------------------------------------------------------------
 
+;Todas las macros siguientes son para resaltar en color las palabras correctas en la pantalla
 m1_brasil macro
     letraColor m1_p2 n1 n4 w11 
     endm

@@ -1,6 +1,5 @@
 include emu8086.inc  
 include matrices.inc
-;include colores.inc
 include colorear.inc
 
 org 100h
@@ -10,13 +9,14 @@ name 'Sopa de Letras'
 .model small
 
 .data 
-buffer db 20 dup (0)   ; buffer de entrada para get_string
-bufSize = $-buffer ;calcula el tamano del buffer
-tematica_escogida db ?
+buffer db 20 dup (0)    ;buffer de entrada para get_string
+bufSize = $-buffer      ;calcula el tamano del buffer
+
+tematica_escogida db ?  
 matriz_escogida db ?
 
 
-cadena_mayusculas db 20 dup(0)
+cadena_mayusculas db 20 dup(0)   ;cadena para almacenar el input en mayusculas
 
 v1 db 0
 v2 db 0
@@ -127,10 +127,13 @@ mov ds,ax
 ;------------------IMPRIMIR INTERFAZ------------------------ 
 
 call imprimirInterfaz
-       
+
+;-----------------------------------------------------------       
 
 ;-----------------INGRESAR Y SELECCIONAR TEMATICA-----------------
 
+
+;Se escoge la tematica deseada
 escoger_t:
 
 mov ah,09h
@@ -161,9 +164,11 @@ jz m_tm3
 
 jmp salir 
  
+;---------------------------------------------------------------
  
 ;----------------TEMATICA INGRESADA INCORRECTA------------------
 
+;En caso de que el valor de tematica ingresado no este dentro del rango
 incorrecta_t:
 
 mov ah,09h
@@ -172,10 +177,14 @@ int 21h
 
 imprimirLinea 
 
-jmp escoger_t
+jmp escoger_t  
 
-;-----------------ESCOGER MATRIZ TEMATICA 1-----------------
+;----------------------------------------------------------------
 
+;-----------------ESCOGER MATRIZ TEMATICA 1----------------------
+
+
+;En caso de escoger la tematica 1, se debe escoger si se desea jugar la sopa de letras 1 o 2
 m_tm1:
 
 mov ah,09h
@@ -199,11 +208,15 @@ cmp matriz_escogida,1
 jz tm1_m1_inicio
 
 cmp matriz_escogida,2
-jz tm1_m2_inicio
+jz tm1_m2_inicio 
+
+;-----------------------------------------------------------------
 
 
 ;----------------MATRIZ TM1 INGRESADA INCORRECTA------------------
 
+
+;Se ingresa aqui si el valor de la sopa de letras ingresado de la tematica 1 no esta dentro del rango
 incorrecta_m1:
 
 mov ah,09h
@@ -212,10 +225,13 @@ int 21h
 
 imprimirLinea 
 
-jmp m_tm1
+jmp m_tm1  
 
-;-----------------ESCOGER MATRIZ TEMATICA 2-----------------
+;-----------------------------------------------------------------
 
+;-----------------ESCOGER MATRIZ TEMATICA 2-----------------------
+
+;En caso de escoger la tematica 2, se debe escoger si se desea jugar la sopa de letras 1 o 2
 m_tm2:
 
 mov ah,09h
@@ -241,9 +257,12 @@ jz tm2_m1_inicio
 cmp matriz_escogida,2
 jz tm2_m2_inicio
 
+;-----------------------------------------------------------------
+
 
 ;----------------MATRIZ TM2 INGRESADA INCORRECTA------------------
 
+;Se ingresa aqui si el valor de la sopa de letras ingresado de la tematica 2 no esta dentro del rango
 incorrecta_m2:
 
 mov ah,09h
@@ -252,10 +271,13 @@ int 21h
 
 imprimirLinea 
 
-jmp m_tm2 
+jmp m_tm2
 
-;-----------------ESCOGER MATRIZ TEMATICA 3-----------------
+;------------------------------------------------------------------ 
 
+;-----------------ESCOGER MATRIZ TEMATICA 3------------------------
+
+;En caso de escoger la tematica 3, se debe escoger si se desea jugar la sopa de letras 1 o 2
 m_tm3:
 
 mov ah,09h
@@ -281,9 +303,11 @@ jz tm3_m1_inicio
 cmp matriz_escogida,2
 jz tm3_m2_inicio
 
+;-------------------------------------------------------------------
 
-;----------------MATRIZ TM3 INGRESADA INCORRECTA------------------
+;----------------MATRIZ TM3 INGRESADA INCORRECTA--------------------
 
+;Se ingresa aqui si el valor de la sopa de letras ingresado de la tematica 3 no esta dentro del rango
 incorrecta_m3:
 
 mov ah,09h
@@ -294,10 +318,13 @@ imprimirLinea
 
 jmp m_tm3
 
+;-------------------------------------------------------------------
 
-;---------------TEMATICA 1 MATRIZ 1---------------------------- 
 
+;---------------TEMATICA 1 MATRIZ 1--------------------------------- 
 
+;Se ingresa aqui en caso de que el usuario escoja jugar la sopa de letras 1 de la tematica 1
+;Se limpia la pantalla y se imprime la matriz correspondiente
 tm1_m1_inicio:
     mov al,1
     mov vTp1,al
@@ -320,8 +347,14 @@ tm1_m1_inicio:
     int 10h
     
     jmp palabras_tm1_m1
+
+;--------------------------------------------------------------------
     
-;--------------TEMATICA 1 MATRIZ 2-----------------------------
+;--------------TEMATICA 1 MATRIZ 2----------------------------------- 
+
+
+;Se ingresa aqui en caso de que el usuario escoja jugar la sopa de letras 2 de la tematica 1
+;Se limpia la pantalla y se imprime la matriz correspondiente
 tm1_m2_inicio:
     mov al,1
     mov vTp2,al
@@ -345,9 +378,12 @@ tm1_m2_inicio:
     
     jmp palabras_tm1_m2
 
-;---------------TEMATICA 2 MATRIZ 1---------------------------- 
+;--------------------------------------------------------------------
 
+;---------------TEMATICA 2 MATRIZ 1---------------------------------- 
 
+;Se ingresa aqui en caso de que el usuario escoja jugar la sopa de letras 1 de la tematica 2
+;Se limpia la pantalla y se imprime la matriz correspondiente
 tm2_m1_inicio:
     mov al,1
     mov vTp3,al
@@ -371,9 +407,12 @@ tm2_m1_inicio:
     
     jmp palabras_tm2_m1
 
-;---------------TEMATICA 2 MATRIZ 2---------------------------- 
+;---------------------------------------------------------------------
 
+;---------------TEMATICA 2 MATRIZ 2----------------------------------- 
 
+;Se ingresa aqui en caso de que el usuario escoja jugar la sopa de letras 2 de la tematica 2
+;Se limpia la pantalla y se imprime la matriz correspondiente
 tm2_m2_inicio:
     mov al,1
     mov vTp4,al
@@ -395,11 +434,14 @@ tm2_m2_inicio:
     mov ah,2
     int 10h
     
-    jmp palabras_tm2_m2
+    jmp palabras_tm2_m2 
+
+;-------------------------------------------------------------------
  
- ;---------------TEMATICA 3 MATRIZ 1---------------------------- 
+;---------------TEMATICA 3 MATRIZ 1---------------------------------
 
-
+;Se ingresa aqui en caso de que el usuario escoja jugar la sopa de letras 1 de la tematica 3
+;Se limpia la pantalla y se imprime la matriz correspondiente
 tm3_m1_inicio:
     mov al,1
     mov vTp5,al
@@ -421,11 +463,14 @@ tm3_m1_inicio:
     mov ah,2
     int 10h
     
-    jmp palabras_tm3_m1 
+    jmp palabras_tm3_m1
 
-;---------------TEMATICA 3 MATRIZ 2---------------------------- 
+;-------------------------------------------------------------------- 
 
+;---------------TEMATICA 3 MATRIZ 2---------------------------------- 
 
+;Se ingresa aqui en caso de que el usuario escoja jugar la sopa de letras 2 de la tematica 3
+;Se limpia la pantalla y se imprime la matriz correspondiente
 tm3_m2_inicio:
     mov al,1
     mov vTp6,al
@@ -449,7 +494,11 @@ tm3_m2_inicio:
     
     jmp palabras_tm3_m2 
 
-;----------------PALABRAS MATRIZ 1 TEMATICA 1-----------------
+;---------------------------------------------------------------------
+
+;----------------PALABRAS MATRIZ 1 TEMATICA 1-------------------------
+
+;Se preparan las palabras de la matriz 1 tematica 1 para luego validar si son las que el usuario ingresa
 palabras_tm1_m1:
     mov si,offset p1_tm1_m1
     mov di,offset palabra6letras1
@@ -473,9 +522,12 @@ palabras_tm1_m1:
     rep movsb    
 
     jmp ingresar_palabra
-    
 
-;----------------PALABRAS MATRIZ 2 TEMATICA 1-----------------
+;---------------------------------------------------------------------    
+
+;----------------PALABRAS MATRIZ 2 TEMATICA 1-------------------------
+
+;Se preparan las palabras de la matriz 2 tematica 1 para luego validar si son las que el usuario ingresa
 palabras_tm1_m2:
     mov si,offset p1_tm1_m2
     mov di,offset palabra6letras1
@@ -500,7 +552,11 @@ palabras_tm1_m2:
 
     jmp ingresar_palabra        
 
-;----------------PALABRAS MATRIZ 1 TEMATICA 2-----------------
+;---------------------------------------------------------------------
+
+;----------------PALABRAS MATRIZ 1 TEMATICA 2-------------------------
+
+;Se preparan las palabras de la matriz 1 tematica 2 para luego validar si son las que el usuario ingresa
 palabras_tm2_m1:
     mov si,offset p1_tm2_m1
     mov di,offset palabra6letras1
@@ -525,7 +581,11 @@ palabras_tm2_m1:
 
     jmp ingresar_palabra
 
-;----------------PALABRAS MATRIZ 2 TEMATICA 2-----------------
+;---------------------------------------------------------------------
+
+;----------------PALABRAS MATRIZ 2 TEMATICA 2-------------------------
+
+;Se preparan las palabras de la matriz 2 tematica 2 para luego validar si son las que el usuario ingresa
 palabras_tm2_m2:
     mov si,offset p1_tm2_m2
     mov di,offset palabra6letras1
@@ -550,7 +610,11 @@ palabras_tm2_m2:
 
     jmp ingresar_palabra
 
-;----------------PALABRAS MATRIZ 1 TEMATICA 3-----------------
+;---------------------------------------------------------------------
+
+;----------------PALABRAS MATRIZ 1 TEMATICA 3-------------------------
+
+;Se preparan las palabras de la matriz 1 tematica 3 para luego validar si son las que el usuario ingresa
 palabras_tm3_m1:
     mov si,offset p1_tm3_m1
     mov di,offset palabra6letras1
@@ -575,7 +639,11 @@ palabras_tm3_m1:
 
     jmp ingresar_palabra
 
-;----------------PALABRAS MATRIZ 2 TEMATICA 3-----------------
+;---------------------------------------------------------------------
+
+;----------------PALABRAS MATRIZ 2 TEMATICA 3------------------------- 
+
+;Se preparan las palabras de la matriz 2 tematica 3 para luego validar si son las que el usuario ingresa
 palabras_tm3_m2:
     mov si,offset p1_tm3_m2
     mov di,offset palabra6letras1
@@ -600,8 +668,11 @@ palabras_tm3_m2:
 
     jmp ingresar_palabra    
 
-;---------------INGRESAR POSIBLE PALABRA---------------------
+;---------------------------------------------------------------------
 
+;---------------INGRESAR POSIBLE PALABRA------------------------------
+
+;Se ingresa aqui para que el usuario tipee la palabra deseada
 ingresar_palabra: 
     mov al,0
     mov vI,al 
@@ -616,8 +687,11 @@ ingresar_palabra:
     call convertirMayus
     
     jmp comprobarRendir
+;---------------------------------------------------------------------
     
-;--------------COMPROBAR RENDIR-----------------------
+;--------------COMPROBAR RENDIR---------------------------------------
+
+;Se realiza primero esta validacion para verificar si el usuario desea rendirse y no continuar
 comprobarRendir:
     call comprobarPalabraRendir
     jmp testR
@@ -625,25 +699,26 @@ testR:
     cmp vR,1
     jz menu_rendirse
     jnz comprobarP1
-    
-    
-;-------------RENDIRSE--------------------------------
 
+;---------------------------------------------------------------------    
+    
+;-------------RENDIRSE------------------------------------------------
+
+;Se ingresa aqui en caso de que el usuario se haya rendido. Imprime
+;mensaje de rendicion y sale del programa
 menu_rendirse:
     mov ax,3
     int 10h
-
-    ;mov ah,09h
-    ;lea dx,rendirseInfo
-    ;int 21h
-    
     letraColor rendirseInfo n0 n0 w47
     
     jmp salir
  
+;---------------------------------------------------------------------
 
-;--------------COMPROBAR PALABRAS----------------------
+;--------------COMPROBAR PALABRAS-------------------------------------
 
+;Todas estas son validaciones para que se compare la palabra ingresada con las 
+;5 palabras disponibles de la sopa de letras
 comprobarP1:
     call comprobarPalabra1_Tm1_M1
     jmp comprobarP2 
@@ -664,8 +739,11 @@ comprobarP5:
     call comprobarPalabra5_Tm1_M1
     jmp incorrecto        
 
-;------------PALABRA INCORRECTA-----------------
+;---------------------------------------------------------------------
 
+;------------PALABRA INCORRECTA---------------------------------------
+
+;Luego de comprobar con las 5 palabras, se validara si fue correcta o incorrecta
 incorrecto:
     call vaciarMayus
     cmp vI,5
@@ -673,6 +751,8 @@ incorrecto:
     jnz cambiosPantalla
     jnz total
 
+
+;En caso de incorrecta, salta aqui y se muestra por pantalla que la palabra fue incorrecta
 pin: 
     imprimirLinea
     
@@ -683,10 +763,13 @@ pin:
     imprimirLinea
 
     jmp ingresar_palabra  
+
+;---------------------------------------------------------------------
     
-;-------------VALIDAR PALABRAS INGRESADAS---------------
+;-------------VALIDAR MATRIZ ESCOGIDA---------------------------------
 
-
+;Todo el bloque siguiente es para validar que matriz se escogio y cada vez que se adivine la palabra
+;se limpia la pantalla y se imprime dicha matriz
 cambiosPantalla:
     mov ax,3
     int 10h 
@@ -736,8 +819,13 @@ k6:
     imprimirM6
     jmp validarP1_5 
 
+;-------------------------------------------------------------------------
+
+;-------------RESALTAR PALABRAS VALIDADAS---------------------------------
 
 
+;Este bloque es para validar que palabras correctas han sido ingresadas
+;de la matriz 1 tematica 1 y luego resaltarlas en la matriz 
 validarP1:
     cmp v1,1
     jz cambiosP1
@@ -805,7 +893,8 @@ cambiosP5:
     
     
     
-    
+;Este bloque es para validar que palabras correctas han sido ingresadas
+;de la matriz 2 tematica 1 y luego resaltarlas en la matriz     
 validarP1_1:
     cmp v1,1
     jz cambiosP1_1
@@ -871,7 +960,9 @@ cambiosP5_1:
     int 10h
     jmp total
     
-    
+
+;Este bloque es para validar que palabras correctas han sido ingresadas
+;de la matriz 1 tematica 2 y luego resaltarlas en la matriz     
 validarP1_2:
     cmp v1,1
     jz cambiosP1_2
@@ -941,7 +1032,8 @@ cambiosP5_2:
 
 
 
-
+;Este bloque es para validar que palabras correctas han sido ingresadas
+;de la matriz 2 tematica 2 y luego resaltarlas en la matriz 
 validarP1_3:
     cmp v1,1
     jz cambiosP1_3
@@ -1009,7 +1101,8 @@ cambiosP5_3:
     
     
 
-
+;Este bloque es para validar que palabras correctas han sido ingresadas
+;de la matriz 1 tematica 3 y luego resaltarlas en la matriz 
 validarP1_4:
     cmp v1,1
     jz cambiosP1_4
@@ -1079,7 +1172,8 @@ cambiosP5_4:
     
 
 
-
+;Este bloque es para validar que palabras correctas han sido ingresadas
+;de la matriz 2 tematica 3 y luego resaltarlas en la matriz 
 validarP1_5:
     cmp v1,1
     jz cambiosP1_5
@@ -1146,10 +1240,11 @@ cambiosP5_5:
     jmp total           
     
 
+;---------------------------------------------------
+;------------TOTAL----------------------------------
 
-;------------TOTAL------------------------
-
-
+;Luego de sombrear las palabras correspondientes, ingresa aqui para validar si
+;ya se ingresaron las 5 palabras disponibles
 total:
     mov al,0
     add al,v1
@@ -1161,30 +1256,25 @@ total:
     jz final
     jnz ingresar_palabra   
 
+
+;Salta aqui si ya se ingresaron las 5 palabras. Imprime mensaje de felicitacion
+;y sale del programa
 final:
     mov ah,09h
     lea dx,finalInfo
     int 21h
     jmp salir    
 
-
-jmp salir
-
-
-
-;---------------TEMATICA 2----------------------------
-
-;tm_2:
-
-;---------------TEMATICA 3----------------------------
-
-;tm_3:
-
+;----------------------------------------------------
 
 ;-----------------PROCEDIMIENTOS---------------------
 
-DEFINE_GET_STRING   
 
+;Habilita el procedimiento get_string de la libreria emu8086.inc
+DEFINE_GET_STRING   
+;-------------------------------------------------------------------------
+
+;Procedimiento para imprimir la interfaz principal del programa
 imprimirInterfaz PROC
     mov ah,09h   
     lea dx,linea1
@@ -1265,8 +1355,10 @@ imprimirInterfaz PROC
     int 10h
     ret   
 imprimirInterfaz ENDP
+;-------------------------------------------------------------------------
 
-
+;Procedimiento para vaciar la cadena donde se guarda el input del usuario
+;y asi volver a usarla
 vaciarBuf PROC
 
     mov si,0
@@ -1279,8 +1371,10 @@ vaciarBuf PROC
 
     ret
 vaciarBuf ENDP
+;-------------------------------------------------------------------------
 
-
+;Procedimiento para vaciar la cadena donde se guarda el input del usuario en mayuscula
+;y asi volver a usarla
 vaciarMayus PROC
 
     mov si,0
@@ -1293,8 +1387,9 @@ vaciarMayus PROC
 
     ret
 vaciarMayus ENDP
+;-------------------------------------------------------------------------
 
-
+;Procedimiento para convertir en mayuscula el input del usuario
 convertirMayus PROC
     lea si, buffer
     lea di, cadena_mayusculas
@@ -1302,21 +1397,21 @@ convertirMayus PROC
 
     ; Recorre la cadena original
     recorrer:
-        mov al, [si]        ; Obtiene el pr�ximo car�cter de la cadena original
-        cmp al, 0           ; Comprueba si es el car�cter nulo (fin de cadena)
+        mov al, [si]        ; Obtiene el proximo caracter de la cadena original
+        cmp al, 0           ; Comprueba si es el caracter nulo (fin de cadena)
         je  finConversion   ; Si es el final, termina el bucle
 
         cmp al, 'a'         ; Compara con 'a'
-        jb  noConversion    ; Si es menor que 'a', no es una letra min�scula
+        jb  noConversion    ; Si es menor que 'a', no es una letra minuscula
 
         cmp al, 'z'         ; Compara con 'z'
-        ja  noConversion    ; Si es mayor que 'z', no es una letra min�scula
+        ja  noConversion    ; Si es mayor que 'z', no es una letra minuscula
 
-        ; Si llega aqu�, el car�cter es una letra min�scula
-        sub al, 32          ; Convierte a may�sculas restando 32 (diferencia entre 'a' y 'A')
+        ; Si llega aqui, el caracter es una letra minuscula
+        sub al, 32          ; Convierte a mayuscula restando 32 (diferencia entre 'a' y 'A')
 
     noConversion:
-        mov [di], al        ; Almacena el car�cter convertido en la cadena de destino
+        mov [di], al        ; Almacena el caracter convertido en la cadena de destino
 
         inc si
         inc di
@@ -1326,8 +1421,9 @@ convertirMayus PROC
         call vaciarBuf    
     ret    
 convertirMayus ENDP
+;-------------------------------------------------------------------------
 
-
+;Procedimiento para comprobar si el input se parece a la primera palabra disponible
 comprobarPalabra1_Tm1_M1 PROC
     lea si, [palabra6letras1]
     lea di, [cadena_mayusculas]
@@ -1362,8 +1458,9 @@ comprobarPalabra1_Tm1_M1 PROC
         mov v1,al
     ret
 comprobarPalabra1_Tm1_M1 ENDP
+;-------------------------------------------------------------------------
 
-
+;Procedimiento para comprobar si el input se parece a la segunda palabra disponible
 comprobarPalabra2_Tm1_M1 PROC
     lea si, [palabra6letras2]
     lea di, [cadena_mayusculas]
@@ -1398,7 +1495,9 @@ comprobarPalabra2_Tm1_M1 PROC
         mov v2,al 
     ret
 comprobarPalabra2_Tm1_M1 ENDP
+;-------------------------------------------------------------------------
 
+;Procedimiento para comprobar si el input se parece a la tercera palabra disponible
 comprobarPalabra3_Tm1_M1 PROC
     lea si, [palabra9letras]
     lea di, [cadena_mayusculas]
@@ -1433,7 +1532,9 @@ comprobarPalabra3_Tm1_M1 PROC
         mov v3,al
     ret
 comprobarPalabra3_Tm1_M1 ENDP
+;-------------------------------------------------------------------------
 
+;Procedimiento para comprobar si el input se parece a la cuarta palabra disponible
 comprobarPalabra4_Tm1_M1 PROC
     lea si, [palabra7letras]
     lea di, [cadena_mayusculas]
@@ -1468,7 +1569,9 @@ comprobarPalabra4_Tm1_M1 PROC
         mov v4,al
     ret
 comprobarPalabra4_Tm1_M1 ENDP
+;-------------------------------------------------------------------------
 
+;Procedimiento para comprobar si el input se parece a la quinta palabra disponible
 comprobarPalabra5_Tm1_M1 PROC
     lea si, [palabra5letras]
     lea di, [cadena_mayusculas]
@@ -1502,8 +1605,9 @@ comprobarPalabra5_Tm1_M1 PROC
         mov v5,al
     ret
 comprobarPalabra5_Tm1_M1 ENDP
+;-------------------------------------------------------------------------
 
-
+;Procedimiento para comprobar si el input se parece a la palabra RENDIR
 comprobarPalabraRendir PROC
     lea si, [rendir]
     lea di, [cadena_mayusculas]
@@ -1534,8 +1638,11 @@ comprobarPalabraRendir PROC
     ret
 comprobarPalabraRendir ENDP
 
+;-------------------------------------------------------------------------
 
-;----------------SALIR DEL PROGRAMA--------------------------
+;----------------SALIR DEL PROGRAMA--------------------------------------- 
+
+;Salir del programa
 salir:
 .exit
 end
